@@ -5,20 +5,7 @@ R. Guicherd - April 2020
 
 #include <stdio.h>
 #include <stdlib.h>
-
-// Structure for Element
-typedef struct Element Element;
-struct Element{
-	int number;
-	Element* next;
-};
-
-// Structure for List
-typedef struct List List;
-struct List{
-	int length;
-	Element* first;
-};
+#include "linkedlist.h"
 
 // List initialization function
 List* initializeList(){

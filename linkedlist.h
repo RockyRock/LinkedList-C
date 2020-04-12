@@ -3,7 +3,27 @@ Linked list header file
 R. Guicherd - April 2020
 */
 
-// Function prototypes
+/*
+Structure definition
+*/
+
+// Structure for Element
+typedef struct Element Element;
+struct Element{
+	int number;
+	Element* next;
+};
+
+// Structure for List
+typedef struct List List;
+struct List{
+	int length;
+	Element* first;
+};
+
+/*
+Function prototypes
+*/
 
 // Initialize list
 List* initializeList();
