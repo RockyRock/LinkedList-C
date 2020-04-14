@@ -3,6 +3,9 @@ Linked list header file
 R. Guicherd - April 2020
 */
 
+// Header guard
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
 /*
 Structure definition
 */
@@ -48,3 +51,5 @@ int sizeList(List* list);
 
 // Delete list
 void deleteList(List* list);
+
+#endif
