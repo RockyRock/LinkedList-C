@@ -41,6 +41,12 @@ int main(int argc, char *argv[]){
 	displayList(mylist);
 	printf("List size: %d\n", sizeList(mylist));
 	
+	// Reverse list
+	reverseList(mylist);
+	printf("Reverse list\n");
+	displayList(mylist);
+	printf("List size: %d\n", sizeList(mylist));
+	
 	// Add element at and display
 	position = 3;
 	addElementAt(mylist, position, 42);

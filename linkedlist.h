@@ -37,6 +37,9 @@ void addElement(List* list, int newNumber);
 // Add element at
 void addElementAt(List* list, int pos, int newNumber);
 
+// Reverse list
+void reverseList(List* list);
+
 // Delete element
 void deleteElement(List* list);
 
