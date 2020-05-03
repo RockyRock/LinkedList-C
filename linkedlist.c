@@ -77,36 +77,6 @@ void addElementAt(List* list, int pos, int newNumber){
 	}
 }
 
-// Reverse list order
-void reverseList(List* list){
-	// Check on list
-	if (list == NULL){
-		exit(EXIT_FAILURE);
-	}
-	
-	// Initialization
-	Element* previous = NULL;
-	Element* current = NULL;
-	Element* next = NULL;
-	if (list->first == NULL){
-		exit(EXIT_FAILURE);
-	}
-	
-	// Set current to first list element
-	current = list->first;
-	
-	// Loop through all list elements
-	while (current != NULL){
-		next = current->next;
-		current->next = previous;
-		previous = current;
-		current = next;
-	}
-	
-	// List change first element
-	list->first = previous;
-}
-
 // Delete element function
 void deleteElement(List* list){
 	// Check on list
@@ -154,6 +124,36 @@ void deleteElementAt(List* list, int pos){
 		// Decrement list size
 		list->length--;
 	}
+}
+
+// Reverse list order
+void reverseList(List* list){
+	// Check on list
+	if (list == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialization
+	Element* previous = NULL;
+	Element* current = NULL;
+	Element* next = NULL;
+	if (list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Set current to first list element
+	current = list->first;
+	
+	// Loop through all list elements
+	while (current != NULL){
+		next = current->next;
+		current->next = previous;
+		previous = current;
+		current = next;
+	}
+	
+	// List change first element
+	list->first = previous;
 }
 
 // Display list function

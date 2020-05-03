@@ -37,14 +37,14 @@ void addElement(List* list, int newNumber);
 // Add element at
 void addElementAt(List* list, int pos, int newNumber);
 
-// Reverse list
-void reverseList(List* list);
-
 // Delete element
 void deleteElement(List* list);
 
 // Delete element at
 void deleteElementAt(List* list, int pos);
+
+// Reverse list
+void reverseList(List* list);
 
 // Display list
 void displayList(List* list);
