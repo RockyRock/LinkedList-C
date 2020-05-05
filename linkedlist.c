@@ -126,6 +126,22 @@ void deleteElementAt(List* list, int pos){
 	}
 }
 
+// Pop element
+int popList(List* list){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Get first element of the list
+	int number = list->first->number;
+	
+	// Delete first element
+	deleteElement(list);
+	
+	return number;
+}
+
 // Reverse list order
 void reverseList(List* list){
 	// Check on list

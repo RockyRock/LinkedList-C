@@ -16,9 +16,11 @@ This section contains some explanations about the functions contained in the lib
 
 * `void deleteElementAt(List* list, int pos)`: Delete an element located at position `pos`, where, `pos = 1` and `pos = length` respectively represent the first and last elements of the list.
 
+* `int popList(List* list)`: Returns the value of the first element of the list and deletes it.
+
 * `void reverseList(List* list)`: Reverse all the elements of the list.
 
-* `void displayList(List* list)`: Display the elements of the list
+* `void displayList(List* list)`: Display the elements of the list.
 
 * `int sizeList(List* list)`: Returns the list size contained in the variable `length`.
 

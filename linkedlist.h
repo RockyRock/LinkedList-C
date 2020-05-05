@@ -43,6 +43,9 @@ void deleteElement(List* list);
 // Delete element at
 void deleteElementAt(List* list, int pos);
 
+// Pop element
+int popList(List* list);
+
 // Reverse list
 void reverseList(List* list);
 

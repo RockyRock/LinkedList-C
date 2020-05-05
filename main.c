@@ -47,6 +47,11 @@ int main(int argc, char *argv[]){
 	displayList(mylist);
 	printf("List size: %d\n", sizeList(mylist));
 	
+	// Pop list
+	printf("Pop list returns: %d\n", popList(mylist));
+	displayList(mylist);
+	printf("List size: %d\n", sizeList(mylist));
+	
 	// Add element at and display
 	position = 3;
 	addElementAt(mylist, position, 42);
