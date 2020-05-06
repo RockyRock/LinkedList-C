@@ -6,6 +6,13 @@ R. Guicherd - April 2020
 // Header guard
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
+
+/*
+Includes
+*/
+
+#include <stdbool.h>
+
 /*
 Structure definition
 */
@@ -51,6 +58,9 @@ int minList(List* list);
 
 // Max element
 int maxList(List* list);
+
+// Contains element
+bool inList(List* list, int num);
 
 // Element location
 int locateList(List* list, int num);

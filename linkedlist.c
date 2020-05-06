@@ -190,6 +190,27 @@ int maxList(List* list){
 	return max;
 }
 
+// Element in list
+bool inList(List* list, int num){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialize current at first element
+	Element* current = list->first;
+	
+	while (current != NULL){
+		if (current->number == num){
+			return true;
+		}
+		// Move to next element
+		current = current->next;
+	}
+	
+	return false;
+}
+
 // Element location
 int locateList(List* list, int num){
 	// Check on list

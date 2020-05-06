@@ -72,6 +72,9 @@ int main(int argc, char *argv[]){
 	// Max element
 	printf("Max element is: %d\n", maxList(mylist));
 	
+	// Check in list
+	printf("Element 0 in list? %d\n", inList(mylist, 0));
+	
 	// Locate element
 	printf("Locate element 0 in list: %d\n", locateList(mylist, 0));
 	printf("Locate element 10 in list: %d\n", locateList(mylist, 10));
