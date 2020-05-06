@@ -68,13 +68,13 @@ int main(int argc, char *argv[]){
 	
 	// Min element
 	printf("Min element is: %d\n", minList(mylist));
-	displayList(mylist);
-	printf("List size: %d\n", sizeList(mylist));
 	
 	// Max element
 	printf("Max element is: %d\n", maxList(mylist));
-	displayList(mylist);
-	printf("List size: %d\n", sizeList(mylist));
+	
+	// Locate element
+	printf("Locate element 0 in list: %d\n", locateList(mylist, 0));
+	printf("Locate element 10 in list: %d\n", locateList(mylist, 10));
 	
 	// Delete element at and display
 	position = 4;

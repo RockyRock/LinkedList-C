@@ -52,6 +52,9 @@ int minList(List* list);
 // Max element
 int maxList(List* list);
 
+// Element location
+int locateList(List* list, int num);
+
 // Reverse list
 void reverseList(List* list);
 

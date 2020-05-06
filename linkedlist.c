@@ -190,6 +190,30 @@ int maxList(List* list){
 	return max;
 }
 
+// Element location
+int locateList(List* list, int num){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialise position index and first element
+	int pos = 1;
+	Element* current = list->first;
+	
+	// Loop through all list elements
+	while (current != NULL){
+		if (current->number == num){
+			return pos;
+		}
+		// Move to next element
+		current = current->next;
+		pos++;
+	}
+	
+	return 0;
+}
+
 // Reverse list order
 void reverseList(List* list){
 	// Check on list
