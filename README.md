@@ -18,6 +18,10 @@ This section contains some explanations about the functions contained in the lib
 
 * `int popList(List* list)`: Returns the value of the first element of the list and deletes it.
 
+* `int minList(List* list)`: Returns the minimum element number of the list.
+
+* `int maxList(List* list)`: Returns the maximum element number of the list.
+
 * `void reverseList(List* list)`: Reverse all the elements of the list.
 
 * `void displayList(List* list)`: Display the elements of the list.

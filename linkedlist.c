@@ -142,6 +142,54 @@ int popList(List* list){
 	return number;
 }
 
+// Returns min element
+int minList(List* list){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Store first element as min incumbent
+	Element* current = list->first;
+	int min = current->number;
+	
+	// Loop through all list elements
+	while (current != NULL){
+		// Replace incumbent if lesser
+		if (min > current->number){
+			min = current->number;
+		}
+		// Move to next element
+		current = current->next;
+	}
+	
+	return min;
+}
+
+// Returns max element
+int maxList(List* list){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Store first element as max incumbent
+	Element* current = list->first;
+	int max = current->number;
+	
+	// Loop through all list elements
+	while (current != NULL){
+		// Replace incumbent if greater
+		if (max < current->number){
+			max = current->number;
+		}
+		// Move to next element
+		current = current->next;
+	}
+	
+	return max;
+}
+
 // Reverse list order
 void reverseList(List* list){
 	// Check on list

@@ -59,6 +59,23 @@ int main(int argc, char *argv[]){
 	displayList(mylist);
 	printf("List size: %d\n", sizeList(mylist));
 	
+	// Add element at and display
+	position = 7;
+	addElementAt(mylist, position, 0);
+	printf("Add element at position: %d\n", position);
+	displayList(mylist);
+	printf("List size: %d\n", sizeList(mylist));
+	
+	// Min element
+	printf("Min element is: %d\n", minList(mylist));
+	displayList(mylist);
+	printf("List size: %d\n", sizeList(mylist));
+	
+	// Max element
+	printf("Max element is: %d\n", maxList(mylist));
+	displayList(mylist);
+	printf("List size: %d\n", sizeList(mylist));
+	
 	// Delete element at and display
 	position = 4;
 	deleteElementAt(mylist, position);

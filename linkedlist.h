@@ -46,6 +46,12 @@ void deleteElementAt(List* list, int pos);
 // Pop element
 int popList(List* list);
 
+// Min element
+int minList(List* list);
+
+// Max element
+int maxList(List* list);
+
 // Reverse list
 void reverseList(List* list);
 
