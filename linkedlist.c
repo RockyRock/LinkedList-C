@@ -235,6 +235,86 @@ int locateList(List* list, int num){
 	return 0;
 }
 
+// Swap elements
+void swapElement(List* list, int pos1, int pos2){
+	// Check on list
+	if (list == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Check on position integers
+	if (pos1 > list->length || pos1 < 1 || pos2 > list->length || pos2 < 1){
+		exit(EXIT_FAILURE);
+	}
+	else if (pos1 == pos2){
+		return;
+	}
+	
+	// Element temp and previous and next elements
+	Element* current = list->first;
+	Element* elt1 = NULL;
+	Element* elt2 = NULL;
+	Element* prev1 = NULL;
+	Element* next1 = NULL;
+	Element* prev2 = NULL;
+	Element* next2 = NULL;
+	int pos = 1;
+	
+	// Check for pos1 at first element
+	if (pos1 == 1){
+		prev1 = list->first;
+		elt1 = prev1->next;
+		next1 = elt1->next;
+	}
+	
+	// Check for pos2 at first element
+	if (pos2 == 1){
+		prev2 = list->first;
+		elt2 = prev2->next;
+		next2 = elt2->next;
+	}
+	
+	while (current != NULL){
+		// Check on pos1
+		if (pos == pos1 - 1){
+			prev1 = current;
+		}
+		else if (pos == pos1){
+			elt1 = current;
+		}
+		else if (pos == pos1 + 1){
+			next1 = current;
+		}
+		// Check on pos2
+		if (pos == pos2 - 1){
+			prev2 = current;
+		}
+		else if (pos == pos2){
+			elt2 = current;
+		}
+		else if (pos == pos2 + 1){
+			next2 = current;
+		}
+		// Move to next element
+		current = current->next;
+		pos++;
+	}
+	
+	// Check for first element
+	if (pos1 == 1){
+		list->first = elt2;
+	}
+	if (pos2 == 1){
+		list->first = elt1;
+	}
+	
+	// Swap the pointers
+	prev1->next = elt2;
+	elt2->next = next1;
+	prev2->next = elt1;
+	elt1->next = next2;
+}
+
 // Reverse list order
 void reverseList(List* list){
 	// Check on list

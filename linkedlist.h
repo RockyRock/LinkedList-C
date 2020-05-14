@@ -65,6 +65,9 @@ bool inList(List* list, int num);
 // Element location
 int locateList(List* list, int num);
 
+// Swap elements
+void swapElement(List* list, int pos1, int pos2);
+
 // Reverse list
 void reverseList(List* list);
 

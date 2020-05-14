@@ -26,6 +26,8 @@ This section contains some explanations about the functions contained in the lib
 
 * `int locateList(List* list, int num)`: Returns the first position index of `num` if in the list, or zero otherwise.
 
+* `void swapElement(List* list, int pos1, int pos2)`: Swap element located in `pos1` with element located in `pos2`.
+
 * `void reverseList(List* list)`: Reverse all the elements of the list.
 
 * `void displayList(List* list)`: Display the elements of the list.

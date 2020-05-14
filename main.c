@@ -79,6 +79,12 @@ int main(int argc, char *argv[]){
 	printf("Locate element 0 in list: %d\n", locateList(mylist, 0));
 	printf("Locate element 10 in list: %d\n", locateList(mylist, 10));
 	
+	// Swap element
+	displayList(mylist);
+	printf("Swap elements 1 and 7 in list\n");
+	swapElement(mylist, 1, 7);
+	displayList(mylist);
+	
 	// Delete element at and display
 	position = 4;
 	deleteElementAt(mylist, position);
