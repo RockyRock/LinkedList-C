@@ -250,50 +250,34 @@ void swapElement(List* list, int pos1, int pos2){
 		return;
 	}
 	
-	// Element temp and previous and next elements
+	// Element current, elt and prev elements
 	Element* current = list->first;
 	Element* elt1 = NULL;
 	Element* elt2 = NULL;
 	Element* prev1 = NULL;
-	Element* next1 = NULL;
 	Element* prev2 = NULL;
-	Element* next2 = NULL;
 	int pos = 1;
 	
 	// Check for pos1 at first element
 	if (pos1 == 1){
-		prev1 = list->first;
-		elt1 = prev1->next;
-		next1 = elt1->next;
+		elt1 = list->first;
 	}
-	
+
 	// Check for pos2 at first element
 	if (pos2 == 1){
-		prev2 = list->first;
-		elt2 = prev2->next;
-		next2 = elt2->next;
+		elt2 = list->first;
 	}
 	
 	while (current != NULL){
 		// Check on pos1
 		if (pos == pos1 - 1){
 			prev1 = current;
-		}
-		else if (pos == pos1){
-			elt1 = current;
-		}
-		else if (pos == pos1 + 1){
-			next1 = current;
+			elt1 = current->next;
 		}
 		// Check on pos2
 		if (pos == pos2 - 1){
 			prev2 = current;
-		}
-		else if (pos == pos2){
-			elt2 = current;
-		}
-		else if (pos == pos2 + 1){
-			next2 = current;
+			elt2 = current->next;
 		}
 		// Move to next element
 		current = current->next;
@@ -301,18 +285,23 @@ void swapElement(List* list, int pos1, int pos2){
 	}
 	
 	// Check for first element
-	if (pos1 == 1){
+	if (prev1 != NULL){
+		prev2->next = elt1;
+	}
+	else{
 		list->first = elt2;
 	}
-	if (pos2 == 1){
+	if (prev2 != NULL){
+		prev1->next = elt2;
+	}
+	else{
 		list->first = elt1;
 	}
 	
-	// Swap the pointers
-	prev1->next = elt2;
-	elt2->next = next1;
-	prev2->next = elt1;
-	elt1->next = next2;
+	// Swap the pointers to next
+	Element* temp = elt2->next;
+	elt2->next = elt1->next;
+	elt1->next = temp;
 }
 
 // Reverse list order
