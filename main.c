@@ -81,8 +81,8 @@ int main(int argc, char *argv[]){
 	
 	// Swap element
 	displayList(mylist);
-	printf("Swap elements 2 and 3 in list\n");
-	swapElement(mylist, 2, 3);
+	printf("Swap elements 1 and 7 in list\n");
+	swapElement(mylist, 1, 7);
 	displayList(mylist);
 	
 	// Delete element at and display

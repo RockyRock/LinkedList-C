@@ -268,7 +268,8 @@ void swapElement(List* list, int pos1, int pos2){
 		elt2 = list->first;
 	}
 	
-	while (current != NULL){
+	// Find elts in the list
+	while (pos < pos1 || pos < pos2){
 		// Check on pos1
 		if (pos == pos1 - 1){
 			prev1 = current;
@@ -284,15 +285,15 @@ void swapElement(List* list, int pos1, int pos2){
 		pos++;
 	}
 	
-	// Check for first element
+	// Check for first element with prev pointer
 	if (prev1 != NULL){
-		prev2->next = elt1;
+		prev1->next = elt2;
 	}
 	else{
 		list->first = elt2;
 	}
 	if (prev2 != NULL){
-		prev1->next = elt2;
+		prev2->next = elt1;
 	}
 	else{
 		list->first = elt1;
