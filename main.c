@@ -79,6 +79,10 @@ int main(int argc, char *argv[]){
 	printf("Locate element 0 in list: %d\n", locateList(mylist, 0));
 	printf("Locate element 10 in list: %d\n", locateList(mylist, 10));
 	
+	// Element at
+	Element* elt = elementAt(mylist, 1);
+	printf("The first element is at %p contains %d and points to next element at %p\n", elt, elt->number, elt->next);
+	
 	// Swap element
 	displayList(mylist);
 	printf("Swap elements 1 and 7 in list\n");

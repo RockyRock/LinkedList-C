@@ -16,6 +16,7 @@ List* initializeList(){
 		exit(EXIT_FAILURE);
 	}
 	
+	// Initialize list parameter
 	element->number = 0;
 	element->next = NULL;
 	list->length = 1;
@@ -28,7 +29,7 @@ List* initializeList(){
 void addElement(List* list, int newNumber){
 	// Creation of new element
 	Element *new = malloc(sizeof(*new));
-	if (list == NULL || new == NULL){
+	if (list == NULL || list->first == NULL || new == NULL){
 		exit(EXIT_FAILURE);
 	}
 	// Set new element number
@@ -50,7 +51,7 @@ void addElementAt(List* list, int pos, int newNumber){
 	}
 	
 	// Check position range
-	if (pos > list->length + 1 || pos <= 0){
+	if (pos > list->length + 1 || pos < 1){
 		exit(EXIT_FAILURE);
 	}
 	
@@ -96,7 +97,7 @@ void deleteElement(List* list){
 // Delete element at function
 void deleteElementAt(List* list, int pos){
 	// Check on list
-	if (list == NULL){
+	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
 	}
 	
@@ -133,7 +134,7 @@ int popList(List* list){
 		exit(EXIT_FAILURE);
 	}
 	
-	// Get first element of the list
+	// Get first element number of the list
 	int number = list->first->number;
 	
 	// Delete first element
@@ -235,10 +236,35 @@ int locateList(List* list, int num){
 	return 0;
 }
 
+// Return element at
+Element* elementAt(List* list, int pos){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Check on position integer
+	if (pos > list->length || pos < 1){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialise element and index
+	Element* elt = list->first;
+	int i = 1;
+	
+	// Loop to find elt at index pos
+	while (i < pos){
+		elt = elt->next;
+		i++;
+	}
+	
+	return elt;
+}
+
 // Swap elements
 void swapElement(List* list, int pos1, int pos2){
 	// Check on list
-	if (list == NULL){
+	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
 	}
 	
@@ -308,7 +334,7 @@ void swapElement(List* list, int pos1, int pos2){
 // Reverse list order
 void reverseList(List* list){
 	// Check on list
-	if (list == NULL){
+	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
 	}
 	
@@ -338,7 +364,7 @@ void reverseList(List* list){
 // Display list function
 void displayList(List* list){
 	// Check on list
-	if (list == NULL){
+	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
 	}
 	
@@ -368,7 +394,7 @@ int sizeList(List* list){
 // Delete list
 void deleteList(List* list){
 	// Check on list
-	if (list == NULL){
+	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
 	}
 	

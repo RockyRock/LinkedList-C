@@ -26,6 +26,8 @@ This section contains some explanations about the functions contained in the lib
 
 * `int locateList(List* list, int num)`: Returns the first position index of `num` if in the list, or zero otherwise.
 
+* `Element* elementAt(List* list, int pos)`: Returns an element pointer for the element located at the index `pos`.
+
 * `void swapElement(List* list, int pos1, int pos2)`: Swap element located in `pos1` with element located in `pos2`.
 
 * `void reverseList(List* list)`: Reverse all the elements of the list.
@@ -36,3 +38,8 @@ This section contains some explanations about the functions contained in the lib
 
 * `void deleteList(List* list)`: Deleted the entire list.
 
+## Compilation
+
+This main file included is provided to test the different functions described above, it can be compiled by entering the following command in a terminal:
+
+```gcc -o main_exe main.c linkedlist.c -I.```
