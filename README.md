@@ -32,6 +32,8 @@ This section contains some explanations about the functions contained in the lib
 
 * `void reverseList(List* list)`: Reverse all the elements of the list.
 
+* `void bubbleSortList(List* list)`: Sort the list in ascending order using the bubble sort algorithm.
+
 * `void displayList(List* list)`: Display the elements of the list.
 
 * `int sizeList(List* list)`: Returns the list size contained in the variable `length`.

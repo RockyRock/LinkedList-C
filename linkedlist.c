@@ -361,6 +361,41 @@ void reverseList(List* list){
 	list->first = previous;
 }
 
+// Sort list
+void bubbleSortList(List* list){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialize current, flag and idx
+	Element* current = list->first;
+	bool flag = true;
+	int idx = 1;
+	
+	while (flag){
+		// Reset current, flag and idx at start of each loop
+		current = list->first;
+		flag = false;
+		idx = 1;
+		// Loop through list and swap elements
+		while (current->next != NULL){
+			if (current->number > current->next->number){
+				// If next element smaller swap, pointer will also move ahead
+				swapElement(list, idx, idx + 1);
+				// Set flag to true and increment idx
+				flag = true;
+				idx++;
+			}
+			else{
+				// Move to next element without swap
+				current = current->next;
+				idx++;
+			}
+		}	
+	}
+}
+
 // Display list function
 void displayList(List* list){
 	// Check on list

@@ -74,6 +74,9 @@ void swapElement(List* list, int pos1, int pos2);
 // Reverse list
 void reverseList(List* list);
 
+// Bubble sort list
+void bubbleSortList(List* list);
+
 // Display list
 void displayList(List* list);
 

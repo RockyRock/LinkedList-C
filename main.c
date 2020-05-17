@@ -89,6 +89,11 @@ int main(int argc, char *argv[]){
 	swapElement(mylist, 1, 7);
 	displayList(mylist);
 	
+	// Sort list with bubble sort
+	printf("Sort list with bubble sort\n");
+	bubbleSortList(mylist);
+	displayList(mylist);
+	
 	// Delete element at and display
 	position = 4;
 	deleteElementAt(mylist, position);
