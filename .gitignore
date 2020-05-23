@@ -1,2 +1,13 @@
 # Git ignore file
+
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all directories
+!*/
+
+# Ignore DS_Store
 .DS_Store
