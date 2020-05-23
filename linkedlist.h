@@ -77,6 +77,9 @@ void reverseList(List* list);
 // Bubble sort list
 void bubbleSortList(List* list);
 
+// Merge list
+List* mergeList(List* list1, List* list2);
+
 // Display list
 void displayList(List* list);
 

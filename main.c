@@ -94,6 +94,16 @@ int main(int argc, char *argv[]){
 	bubbleSortList(mylist);
 	displayList(mylist);
 	
+	// Merge two lists
+	List* mylist1 = initializeList();
+	addElement(mylist1, 2);
+	printf("Merging the two lists\n");
+	displayList(mylist);
+	displayList(mylist1);
+	List* mylist2 = mergeList(mylist, mylist1);
+	displayList(mylist2);
+	printf("List 2 size: %d\n", sizeList(mylist2));
+	
 	// Delete element at and display
 	position = 4;
 	deleteElementAt(mylist, position);

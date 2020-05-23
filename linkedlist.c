@@ -396,6 +396,47 @@ void bubbleSortList(List* list){
 	}
 }
 
+// Merge list
+List* mergeList(List* list1, List* list2){
+	// Check on list1
+	if (list1 == NULL || list1->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Check on list2
+	if (list2 == NULL || list2->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialize new list
+	List* list = initializeList();
+	
+	// Copy list1 in list
+	Element* current1 = list1->first;
+	while (current1 != NULL){
+		// Add new element in list
+		if (current1 == list1->first){
+			list->first->number = current1->number;
+		}
+		else{
+			addElementAt(list, list->length + 1, current1->number);
+		}
+		// Move to next element
+		current1 = current1->next;
+	}
+	
+	// Add list2 in list
+	Element* current2 = list2->first;
+	while (current2 != NULL){
+		// Add element in list
+		addElementAt(list, list->length + 1, current2->number);
+		// Move to next element
+		current2 = current2->next;
+	}
+	
+	return list;
+}
+
 // Display list function
 void displayList(List* list){
 	// Check on list
