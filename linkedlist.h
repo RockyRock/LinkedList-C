@@ -59,6 +59,12 @@ int minList(List* list);
 // Max element
 int maxList(List* list);
 
+// Sum list
+int sumList(List* list);
+
+// Product list
+int productList(List* list);
+
 // Contains element
 bool inList(List* list, int num);
 

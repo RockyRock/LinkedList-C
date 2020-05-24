@@ -22,6 +22,10 @@ This section contains some explanations about the functions contained in the lib
 
 * `int maxList(List* list)`: Returns the maximum element number of the list.
 
+* `int sumList(List* list)`: Sums the element numbers of the list.
+
+* `int productList(List* list)`: Multiplies the element numbers of the list.
+
 * `bool inList(List* list, int num)`: Returns `true` if `num` is in the list, `false` otherwise.
 
 * `int locateList(List* list, int num)`: Returns the first position index of `num` if in the list, or zero otherwise.

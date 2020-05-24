@@ -61,7 +61,7 @@ int main(int argc, char *argv[]){
 	
 	// Add element at and display
 	position = 7;
-	addElementAt(mylist, position, 0);
+	addElementAt(mylist, position, 1);
 	printf("Add element at position: %d\n", position);
 	displayList(mylist);
 	printf("List size: %d\n", sizeList(mylist));
@@ -72,12 +72,18 @@ int main(int argc, char *argv[]){
 	// Max element
 	printf("Max element is: %d\n", maxList(mylist));
 	
+	// Sum list
+	printf("Sum of list elements is: %d\n", sumList(mylist));
+	
+	// Product list
+	printf("Product of list elements is: %d\n", productList(mylist));
+	
 	// Check in list
 	printf("Element 0 in list? %d\n", inList(mylist, 0));
 	
 	// Locate element
-	printf("Locate element 0 in list: %d\n", locateList(mylist, 0));
-	printf("Locate element 10 in list: %d\n", locateList(mylist, 10));
+	printf("Locate element 1 in list: %d\n", locateList(mylist, 1));
+	printf("Locate element 42 in list: %d\n", locateList(mylist, 42));
 	
 	// Element at
 	Element* elt = elementAt(mylist, 1);
@@ -85,8 +91,8 @@ int main(int argc, char *argv[]){
 	
 	// Swap element
 	displayList(mylist);
-	printf("Swap elements 1 and 7 in list\n");
-	swapElement(mylist, 1, 7);
+	printf("Swap elements 1 and 3 in list\n");
+	swapElement(mylist, 1, 3);
 	displayList(mylist);
 	
 	// Sort list with bubble sort

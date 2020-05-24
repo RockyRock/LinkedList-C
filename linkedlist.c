@@ -191,6 +191,55 @@ int maxList(List* list){
 	return max;
 }
 
+// Sum list
+int sumList(List* list){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialization
+	Element* current = list->first;
+	int sum = 0;
+	
+	// Loop through the list elements
+	while (current != NULL){
+		// Add element to sum
+		sum += current->number;
+		// Move to next element
+		current = current->next;
+	}
+	
+	return sum;
+}
+
+// Product list
+int productList(List* list){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialization
+	Element* current = list->first;
+	int product = 1;
+	
+	// Loop through the list elements
+	while (current != NULL){
+		// Multiply element to product
+		if (current->number == 0){
+			return 0;
+		}
+		else{
+			product *= current->number;
+		}
+		// Move to next element
+		current = current->next;
+	}
+	
+	return product;
+}
+
 // Element in list
 bool inList(List* list, int num){
 	// Check on list
