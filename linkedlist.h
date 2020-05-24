@@ -80,6 +80,9 @@ void bubbleSortList(List* list);
 // Merge list
 List* mergeList(List* list1, List* list2);
 
+// Clone list
+List* cloneList(List* list);
+
 // Display list
 void displayList(List* list);
 

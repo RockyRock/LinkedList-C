@@ -104,6 +104,11 @@ int main(int argc, char *argv[]){
 	displayList(mylist2);
 	printf("List 2 size: %d\n", sizeList(mylist2));
 	
+	// Clone list
+	List* clone = cloneList(mylist2);
+	printf("The cloned list is: ");
+	displayList(mylist2);
+	
 	// Delete element at and display
 	position = 4;
 	deleteElementAt(mylist, position);

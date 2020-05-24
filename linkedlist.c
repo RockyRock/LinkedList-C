@@ -437,6 +437,33 @@ List* mergeList(List* list1, List* list2){
 	return list;
 }
 
+// Clone list
+List* cloneList(List* list){
+	// Check on list1
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialize clone and first element
+	List* clone = initializeList();
+	Element* current = list->first;
+	
+	// Loop through elements to clone
+	while (current != NULL){
+		// Copy element to clone and check for first
+		if (current == list->first){
+			clone->first->number = current->number;
+		}
+		else{
+			addElementAt(clone, clone->length + 1, current->number);
+		}
+		// Move to next element
+		current = current->next;
+	}
+	
+	return clone;
+}
+
 // Display list function
 void displayList(List* list){
 	// Check on list

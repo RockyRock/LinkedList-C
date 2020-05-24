@@ -36,6 +36,8 @@ This section contains some explanations about the functions contained in the lib
 
 * `List* mergeList(List* list1, List* list2)`: Merges `list1` with `list2` into a single list object.
 
+* `List* cloneList(List* list)`: Clones the list provided as an input.
+
 * `void displayList(List* list)`: Display the elements of the list.
 
 * `int sizeList(List* list)`: Returns the list size contained in the variable `length`.
