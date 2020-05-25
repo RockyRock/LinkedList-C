@@ -26,7 +26,7 @@ List* initializeList(){
 }
 
 // Add element function
-void addElement(List* list, int newNumber){
+void addElement(List* list, const int newNumber){
 	// Creation of new element
 	Element *new = malloc(sizeof(*new));
 	if (list == NULL || list->first == NULL || new == NULL){
@@ -43,7 +43,7 @@ void addElement(List* list, int newNumber){
 	list->length++;
 }
 
-void addElementAt(List* list, int pos, int newNumber){
+void addElementAt(List* list, const int pos, const int newNumber){
 	// Creation of new element
 	Element *new = malloc(sizeof(*new));
 	if (list == NULL || new == NULL){
@@ -95,7 +95,7 @@ void deleteElement(List* list){
 }
 
 // Delete element at function
-void deleteElementAt(List* list, int pos){
+void deleteElementAt(List* list, const int pos){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -144,7 +144,7 @@ int popList(List* list){
 }
 
 // Returns min element
-int minList(List* list){
+int minList(const List* list){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -168,7 +168,7 @@ int minList(List* list){
 }
 
 // Returns max element
-int maxList(List* list){
+int maxList(const List* list){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -192,7 +192,7 @@ int maxList(List* list){
 }
 
 // Sum list
-int sumList(List* list){
+int sumList(const List* list){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -214,7 +214,7 @@ int sumList(List* list){
 }
 
 // Product list
-int productList(List* list){
+int productList(const List* list){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -241,7 +241,7 @@ int productList(List* list){
 }
 
 // Element in list
-bool inList(List* list, int num){
+bool inList(const List* list, const int num){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -262,7 +262,7 @@ bool inList(List* list, int num){
 }
 
 // Element location
-int locateList(List* list, int num){
+int locateList(const List* list, const int num){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -286,7 +286,7 @@ int locateList(List* list, int num){
 }
 
 // Return element at
-Element* elementAt(List* list, int pos){
+Element* elementAt(const List* list, const int pos){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -311,7 +311,7 @@ Element* elementAt(List* list, int pos){
 }
 
 // Swap elements
-void swapElement(List* list, int pos1, int pos2){
+void swapElement(List* list, const int pos1, const int pos2){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -446,7 +446,7 @@ void bubbleSortList(List* list){
 }
 
 // Merge list
-List* mergeList(List* list1, List* list2){
+List* mergeList(const List* list1, const List* list2){
 	// Check on list1
 	if (list1 == NULL || list1->first == NULL){
 		exit(EXIT_FAILURE);
@@ -487,7 +487,7 @@ List* mergeList(List* list1, List* list2){
 }
 
 // Clone list
-List* cloneList(List* list){
+List* cloneList(const List* list){
 	// Check on list1
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -514,7 +514,7 @@ List* cloneList(List* list){
 }
 
 // Display list function
-void displayList(List* list){
+void displayList(const List* list){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -533,7 +533,7 @@ void displayList(List* list){
 }
 
 // Size list function
-int sizeList(List* list){
+int sizeList(const List* list){
 	// Check on list
 	if (list == NULL){
 		exit(EXIT_FAILURE);

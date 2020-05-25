@@ -39,43 +39,43 @@ Function prototypes
 List* initializeList();
 
 // Add element
-void addElement(List* list, int newNumber);
+void addElement(List* list, const int newNumber);
 
 // Add element at
-void addElementAt(List* list, int pos, int newNumber);
+void addElementAt(List* list, const int pos, const int newNumber);
 
 // Delete element
 void deleteElement(List* list);
 
 // Delete element at
-void deleteElementAt(List* list, int pos);
+void deleteElementAt(List* list, const int pos);
 
 // Pop element
 int popList(List* list);
 
 // Min element
-int minList(List* list);
+int minList(const List* list);
 
 // Max element
-int maxList(List* list);
+int maxList(const List* list);
 
 // Sum list
-int sumList(List* list);
+int sumList(const List* list);
 
 // Product list
-int productList(List* list);
+int productList(const List* list);
 
 // Contains element
-bool inList(List* list, int num);
+bool inList(const List* list, const int num);
 
 // Element location
-int locateList(List* list, int num);
+int locateList(const List* list, const int num);
 
 // Return element at
-Element* elementAt(List* list, int pos);
+Element* elementAt(const List* list, const int pos);
 
 // Swap elements
-void swapElement(List* list, int pos1, int pos2);
+void swapElement(List* list, const int pos1, const int pos2);
 
 // Reverse list
 void reverseList(List* list);
@@ -84,16 +84,16 @@ void reverseList(List* list);
 void bubbleSortList(List* list);
 
 // Merge list
-List* mergeList(List* list1, List* list2);
+List* mergeList(const List* list1, const List* list2);
 
 // Clone list
-List* cloneList(List* list);
+List* cloneList(const List* list);
 
 // Display list
-void displayList(List* list);
+void displayList(const List* list);
 
 // Size list
-int sizeList(List* list);
+int sizeList(const List* list);
 
 // Delete list
 void deleteList(List* list);
