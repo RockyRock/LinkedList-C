@@ -34,7 +34,7 @@ This section contains some explanations about the functions contained in the lib
 
 * `void swapElement(List* list, const int pos1, const int pos2)`: Swap element located in `pos1` with element located in `pos2`.
 
-* `void moveElement(List* list, cons int posi, const int posf)`: Move element located at `posi` to a new position `posf`.
+* `void moveElement(List* list, const int posi, const int posf)`: Move element located at `posi` to a new position `posf`.
 
 * `void reverseList(List* list)`: Reverse all the elements of the list.
 
@@ -50,10 +50,10 @@ This section contains some explanations about the functions contained in the lib
 
 * `int sizeList(const List* list)`: Returns the list size contained in the variable `length`.
 
-* `void deleteList(List* list)`: Deleted the entire list.
+* `void deleteList(List* list)`: Delete the entire list.
 
 ## Compilation
 
-This main file included is provided to test the different functions described above, it can be compiled by entering the following command in a terminal:
+The main file included is provided to test the different functions described above, it can be compiled by entering the following command in a terminal:
 
 ```gcc -o main_exe main.c linkedlist.c -I.```
