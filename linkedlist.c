@@ -380,6 +380,70 @@ void swapElement(List* list, const int pos1, const int pos2){
 	elt1->next = temp;
 }
 
+// Move element
+void moveElement(List* list, const int posi, const int posf){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Check on position integers
+	if (posi > list->length || posi < 1 || posf > list->length || posf < 1){
+		exit(EXIT_FAILURE);
+	}
+	else if (posi == posf){
+		return;
+	}
+	
+	// Element current, elt and prev
+	Element* current = list->first;
+	Element* elt = NULL;
+	Element* prev = NULL;
+	int pos = 1;
+	
+	// Check for posi at first element
+	if (posi == 1){
+		elt = list->first;
+	}
+	
+	// Find prev and elt in list
+	while (pos < posi){
+		// Store previous and element
+		if (pos == posi - 1){
+			prev = current;
+			elt = current->next;
+		}
+		// Move to next element
+		current = current->next;
+		pos++;
+	}
+	
+	// Set next of prev to next of elt
+	if (prev != NULL){
+		prev->next = elt->next;
+	}
+	else{
+		list->first = elt->next;
+	}
+	
+	// Reinsert element at posf
+	current = list->first;
+	pos = 1;
+	if (posf == 1){
+		elt->next = list->first;
+		list->first = elt;
+	}
+	while (pos < posf){
+		if (pos == posf - 1){
+			elt->next = current->next;
+			current->next = elt;
+		}
+		// Move to next element
+		current = current->next;
+		pos++;
+	}
+}
+
 // Reverse list order
 void reverseList(List* list){
 	// Check on list
@@ -442,6 +506,42 @@ void bubbleSortList(List* list){
 				idx++;
 			}
 		}	
+	}
+}
+
+// Insertion sort list
+void insertionSortList(List* list){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialize current, idx and pos
+	Element* current = list->first;
+	Element* elt = list->first;
+	int idx = 1;
+	int pos = 1;
+	
+	// Loop throught list
+	while (current->next != NULL){
+		// Insert element at the begining if not in right place
+		if (current->number > current->next->number){
+			elt = list->first;
+			pos = 1;
+			while (elt->number <= current->next->number){
+				// Move to next to find insertion position
+				elt = elt->next;
+				pos++;
+			}
+			// Increment idx and move element from idx to pos
+			idx++;
+			moveElement(list, idx, pos);
+		}
+		else{
+			// Move to next element
+			current = current->next;
+			idx++;
+		}
 	}
 }
 

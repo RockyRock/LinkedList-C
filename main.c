@@ -5,6 +5,7 @@ R. Guicherd - April 2020
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "linkedlist.h"
 
 int main(int argc, char *argv[]){
@@ -90,15 +91,23 @@ int main(int argc, char *argv[]){
 	printf("The first element is at %p contains %d and points to next element at %p\n", elt, elt->number, elt->next);
 	
 	// Swap element
-	displayList(mylist);
 	printf("Swap elements 1 and 3 in list\n");
+	displayList(mylist);
 	swapElement(mylist, 1, 3);
+	displayList(mylist);
+	
+	// Move element
+	printf("Move element 1 to 7 in list\n");
+	moveElement(mylist, 1, 7);
 	displayList(mylist);
 	
 	// Sort list with bubble sort
 	printf("Sort list with bubble sort\n");
+	clock_t begin = clock();
 	bubbleSortList(mylist);
+	clock_t end = clock();
 	displayList(mylist);
+	printf("Execution time: %lf\n", (double) (end - begin)/CLOCKS_PER_SEC);
 	
 	// Merge two lists
 	List* mylist1 = initializeList();
@@ -114,6 +123,14 @@ int main(int argc, char *argv[]){
 	List* clone = cloneList(mylist2);
 	printf("The cloned list is: ");
 	displayList(mylist2);
+	
+	// Sort list with insertion sort
+	printf("Sort list with insertion sort\n");
+	begin = clock();
+	insertionSortList(clone);
+	end = clock();
+	displayList(clone);
+	printf("Execution time: %lf\n", (double) (end - begin)/CLOCKS_PER_SEC);
 	
 	// Delete element at and display
 	position = 4;

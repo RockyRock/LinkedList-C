@@ -34,9 +34,13 @@ This section contains some explanations about the functions contained in the lib
 
 * `void swapElement(List* list, const int pos1, const int pos2)`: Swap element located in `pos1` with element located in `pos2`.
 
+* `void moveElement(List* list, cons int posi, const int posf)`: Move element located at `posi` to a new position `posf`.
+
 * `void reverseList(List* list)`: Reverse all the elements of the list.
 
 * `void bubbleSortList(List* list)`: Sort the list in ascending order using the bubble sort algorithm.
+
+* `void insertionSortList(List* list)`: Sort the list in ascending order using the insertion sort algorithm.
 
 * `List* mergeList(const List* list1, const List* list2)`: Merges `list1` with `list2` into a single list object.
 

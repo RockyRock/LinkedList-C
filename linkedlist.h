@@ -77,11 +77,17 @@ Element* elementAt(const List* list, const int pos);
 // Swap elements
 void swapElement(List* list, const int pos1, const int pos2);
 
+// Move element
+void moveElement(List* list, const int posi, const int posf);
+
 // Reverse list
 void reverseList(List* list);
 
 // Bubble sort list
 void bubbleSortList(List* list);
+
+// Insertion sort list
+void insertionSortList(List* list);
 
 // Merge list
 List* mergeList(const List* list1, const List* list2);
