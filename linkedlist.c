@@ -465,6 +465,74 @@ void moveElement(List* list, const int posi, const int posf){
 	}
 }
 
+// Partition list
+void partitionNumList(List* list, const int n){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialization elements
+	Element* current = list->first;
+	Element* prev = NULL;
+	Element* lo = NULL;
+	
+	// Loop throught list elements
+	while (current != NULL){
+		if (current->number < n){
+			if (lo == NULL){
+				if (prev == NULL){
+					// Initialize the low side pointer
+					lo = current;
+					// Update current and prev
+					current = current->next;
+					// Move prev to next element
+					prev = list->first;
+				}
+				else{
+					// Move element on the low side
+					prev->next = current->next;
+					current->next = list->first;
+					list->first = current;
+					// Initialize low side pointer
+					lo = current;
+					// Update current at prev next
+					current = prev->next;
+				}
+			}
+			else if (lo == prev){
+				// Update low side pointer
+				lo = current;
+				// Update current
+				current = current->next;
+				// Update prev
+				prev = prev->next;
+			}
+			else{
+				// Move element on the low side
+				prev->next = current->next;
+				current->next = lo->next;
+				lo->next = current;
+				// Update low side pointer
+				lo = current;
+				// Update current at prev next
+				current = prev->next;
+			}
+		}
+		else{
+			// Move current to next element
+			current = current->next;
+			// Move prev to next or to first element
+			if (prev == NULL){
+				prev = list->first;
+			}
+			else{
+				prev = prev->next;
+			}
+		}
+	}
+}
+
 // Reverse list order
 void reverseList(List* list){
 	// Check on list

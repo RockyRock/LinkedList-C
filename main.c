@@ -119,6 +119,12 @@ int main(int argc, char *argv[]){
 	displayList(mylist2);
 	printf("List 2 size: %d\n", sizeList(mylist2));
 	
+	// Partition list
+	printf("Partition list with pivot 3 list\n");
+	addElement(mylist2, 0);
+	partitionNumList(mylist2, 3);
+	displayList(mylist2);
+	
 	// Clone list
 	List* clone = cloneList(mylist2);
 	printf("The cloned list is: ");

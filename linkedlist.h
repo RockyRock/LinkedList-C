@@ -83,6 +83,9 @@ void swapElement(List* list, const int pos1, const int pos2);
 // Move element
 void moveElement(List* list, const int posi, const int posf);
 
+// Partition list
+void partitionNumList(List* list, const int n);
+
 // Reverse list
 void reverseList(List* list);
 

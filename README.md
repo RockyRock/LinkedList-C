@@ -38,6 +38,8 @@ This section contains some explanations about the functions contained in the lib
 
 * `void moveElement(List* list, const int posi, const int posf)`: Move element located at `posi` to a new position `posf`.
 
+* `void partitionNumList(List* list, const int n)`: Partitions the list by placing the elements less than `n` at the beginning and the elements greater or equal to `n` at the end.
+
 * `void reverseList(List* list)`: Reverse all the elements of the list.
 
 * `void bubbleSortList(List* list)`: Sort the list in ascending order using the bubble sort algorithm.
