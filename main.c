@@ -124,6 +124,9 @@ int main(int argc, char *argv[]){
 	printf("The cloned list is: ");
 	displayList(mylist2);
 	
+	// Check isSorted
+	printf("Is list cloned sorted? %d\n", isSorted(clone));
+	
 	// Sort list with insertion sort
 	printf("Sort list with insertion sort\n");
 	begin = clock();
@@ -131,6 +134,9 @@ int main(int argc, char *argv[]){
 	end = clock();
 	displayList(clone);
 	printf("Execution time: %lf\n", (double) (end - begin)/CLOCKS_PER_SEC);
+	
+	// Check isSorted
+	printf("Is list cloned sorted? %d\n", isSorted(clone));
 	
 	// Delete element at and display
 	position = 4;

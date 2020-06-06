@@ -68,6 +68,9 @@ int productList(const List* list);
 // Contains element
 bool inList(const List* list, const int num);
 
+// Sorted list
+bool isSorted(const List* list);
+
 // Element location
 int locateList(const List* list, const int num);
 

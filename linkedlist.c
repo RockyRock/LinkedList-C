@@ -261,6 +261,27 @@ bool inList(const List* list, const int num){
 	return false;
 }
 
+// Sorted list
+bool isSorted(const List* list){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialize current at first element
+	Element* current = list->first;
+	
+	while (current->next != NULL){
+		if (current->number > current->next->number){
+			return false;
+		}
+		// Move to next element
+		current = current->next;
+	}
+	
+	return true;
+}
+
 // Element location
 int locateList(const List* list, const int num){
 	// Check on list

@@ -28,6 +28,8 @@ This section contains some explanations about the functions contained in the lib
 
 * `bool inList(const List* list, const int num)`: Returns `true` if `num` is in the list, `false` otherwise.
 
+* `bool isSorted(const List* list)`: Returns `true` if the list is sorted in ascending order, `false` otherwise.
+
 * `int locateList(const List* list, const int num)`: Returns the first position index of `num` if in the list, or zero otherwise.
 
 * `Element* elementAt(const List* list, const int pos)`: Returns an element pointer for the element located at the index `pos`.
