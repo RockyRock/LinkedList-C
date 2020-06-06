@@ -225,6 +225,7 @@ int productList(const List* list){
 	int product = 1;
 	
 	// Loop through the list elements
+	
 	while (current != NULL){
 		// Multiply element to product
 		if (current->number == 0){
@@ -238,6 +239,27 @@ int productList(const List* list){
 	}
 	
 	return product;
+}
+
+// Average list
+double averageList(const List* list){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialization current and average
+	Element* current = list->first;
+	double average = 0;
+	
+	// Loop through the list elements
+	while (current != NULL){
+		// Add element divided by list length
+		average += current->number/(double) list->length;
+		// Move to next element
+		current = current->next;
+	}
+	return average;
 }
 
 // Element in list

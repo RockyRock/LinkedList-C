@@ -79,6 +79,9 @@ int main(int argc, char *argv[]){
 	// Product list
 	printf("Product of list elements is: %d\n", productList(mylist));
 	
+	// Average list
+	printf("Average list is: %f\n", averageList(mylist));
+	
 	// Check in list
 	printf("Element 0 in list? %d\n", inList(mylist, 0));
 	

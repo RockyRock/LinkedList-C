@@ -65,6 +65,9 @@ int sumList(const List* list);
 // Product list
 int productList(const List* list);
 
+// Average list
+double averageList(const List* list);
+
 // Contains element
 bool inList(const List* list, const int num);
 
