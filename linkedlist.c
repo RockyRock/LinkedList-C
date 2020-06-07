@@ -497,61 +497,38 @@ void partitionNumList(List* list, const int n){
 	// Initialization elements
 	Element* current = list->first;
 	Element* prev = NULL;
-	Element* lo = NULL;
+	Element* low = NULL;
 	
 	// Loop throught list elements
 	while (current != NULL){
 		if (current->number < n){
-			if (lo == NULL){
-				if (prev == NULL){
-					// Initialize the low side pointer
-					lo = current;
-					// Update current and prev
-					current = current->next;
-					// Move prev to next element
-					prev = list->first;
-				}
-				else{
-					// Move element on the low side
-					prev->next = current->next;
+			if (low == prev){
+				// Update prev element
+				prev = current;
+			}
+			else{
+				// Move current element to the low side
+				prev->next = current->next;
+				if (low == NULL){
+					// Case low  NULL
 					current->next = list->first;
 					list->first = current;
-					// Initialize low side pointer
-					lo = current;
-					// Update current at prev next
-					current = prev->next;
+				}
+				else{
+					// Insert current after low element
+					current->next = low->next;
+					low->next = current;
 				}
 			}
-			else if (lo == prev){
-				// Update low side pointer
-				lo = current;
-				// Update current
-				current = current->next;
-				// Update prev
-				prev = prev->next;
-			}
-			else{
-				// Move element on the low side
-				prev->next = current->next;
-				current->next = lo->next;
-				lo->next = current;
-				// Update low side pointer
-				lo = current;
-				// Update current at prev next
-				current = prev->next;
-			}
+			// Update low element
+			low = current;
 		}
 		else{
-			// Move current to next element
-			current = current->next;
-			// Move prev to next or to first element
-			if (prev == NULL){
-				prev = list->first;
-			}
-			else{
-				prev = prev->next;
-			}
+			// Update prev element
+			prev = current;
 		}
+		// move current element to next of prev
+		current = prev->next;
 	}
 }
 

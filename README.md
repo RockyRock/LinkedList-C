@@ -26,7 +26,7 @@ This section contains some explanations about the functions contained in the lib
 
 * `int productList(const List* list)`: Multiplies the element numbers of the list.
 
-* `double averageList(const List* list)`: Returns the average value of the list.
+* `double averageList(const List* list)`: Returns the average value of element numbers of the list.
 
 * `bool inList(const List* list, const int num)`: Returns `true` if `num` is in the list, `false` otherwise.
 
