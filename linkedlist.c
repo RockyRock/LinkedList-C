@@ -225,7 +225,6 @@ int productList(const List* list){
 	int product = 1;
 	
 	// Loop through the list elements
-	
 	while (current != NULL){
 		// Multiply element to product
 		if (current->number == 0){
@@ -271,7 +270,6 @@ bool inList(const List* list, const int num){
 	
 	// Initialize current at first element
 	Element* current = list->first;
-	
 	while (current != NULL){
 		if (current->number == num){
 			return true;
@@ -292,7 +290,6 @@ bool isSorted(const List* list){
 	
 	// Initialize current at first element
 	Element* current = list->first;
-	
 	while (current->next != NULL){
 		if (current->number > current->next->number){
 			return false;
@@ -543,9 +540,6 @@ void reverseList(List* list){
 	Element* previous = NULL;
 	Element* current = NULL;
 	Element* next = NULL;
-	if (list->first == NULL){
-		exit(EXIT_FAILURE);
-	}
 	
 	// Set current to first list element
 	current = list->first;
@@ -716,7 +710,7 @@ void displayList(const List* list){
 		printf("%d -> ", current->number);
 		current = current->next;
 	}
-	// Print new line
+	// Print NULL and new line
 	printf("NULL\n");
 }
 
