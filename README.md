@@ -63,3 +63,8 @@ This section contains some explanations about the functions contained in the lib
 The main file included is provided to test the different functions described above, it can be compiled by entering the following command in a terminal:
 
 ```gcc -o main_exe main.c linkedlist.c -I.```
+
+Alternatively, a `Makefile` is available in the repository and can be used based on the following commands:
+
+- `make`: compiles the source code in object files, and link them into an executable file called `main_exe`.
+- `make clean`: cleans the object files and the executable file.
