@@ -7,11 +7,13 @@ R. Guicherd - April 2020
 #include <stdlib.h>
 #include "linkedlist.h"
 
-// List initialization function
+// List initialization
 List* initializeList(){
+	// Memory allocation
 	List* list = malloc(sizeof(*list));
 	Element* element = malloc(sizeof(*element));
 	
+	// Check on list and first element
 	if (list == NULL || element == NULL){
 		exit(EXIT_FAILURE);
 	}
@@ -22,13 +24,15 @@ List* initializeList(){
 	list->length = 1;
 	list->first = element;
 	
+	// Return list
 	return list;
 }
 
-// Add element function
+// Add element
 void addElement(List* list, const int newNumber){
 	// Creation of new element
 	Element *new = malloc(sizeof(*new));
+	// Check on list and first element
 	if (list == NULL || list->first == NULL || new == NULL){
 		exit(EXIT_FAILURE);
 	}
@@ -43,6 +47,7 @@ void addElement(List* list, const int newNumber){
 	list->length++;
 }
 
+// Add element at
 void addElementAt(List* list, const int pos, const int newNumber){
 	// Creation of new element
 	Element *new = malloc(sizeof(*new));
@@ -78,7 +83,7 @@ void addElementAt(List* list, const int pos, const int newNumber){
 	}
 }
 
-// Delete element function
+// Delete element
 void deleteElement(List* list){
 	// Check on list
 	if (list == NULL){
@@ -94,7 +99,7 @@ void deleteElement(List* list){
 	}
 }
 
-// Delete element at function
+// Delete element at
 void deleteElementAt(List* list, const int pos){
 	// Check on list
 	if (list == NULL || list->first == NULL){
@@ -140,10 +145,11 @@ int popList(List* list){
 	// Delete first element
 	deleteElement(list);
 	
+	// Return element number
 	return number;
 }
 
-// Returns min element
+// Min element
 int minList(const List* list){
 	// Check on list
 	if (list == NULL || list->first == NULL){
@@ -164,10 +170,11 @@ int minList(const List* list){
 		current = current->next;
 	}
 	
+	// Return min value
 	return min;
 }
 
-// Returns max element
+// Max element
 int maxList(const List* list){
 	// Check on list
 	if (list == NULL || list->first == NULL){
@@ -188,6 +195,7 @@ int maxList(const List* list){
 		current = current->next;
 	}
 	
+	// Return max value
 	return max;
 }
 
@@ -210,6 +218,7 @@ int sumList(const List* list){
 		current = current->next;
 	}
 	
+	// Return sum
 	return sum;
 }
 
@@ -228,6 +237,7 @@ int productList(const List* list){
 	while (current != NULL){
 		// Multiply element to product
 		if (current->number == 0){
+			// Return zero
 			return 0;
 		}
 		else{
@@ -237,6 +247,7 @@ int productList(const List* list){
 		current = current->next;
 	}
 	
+	// Return list product
 	return product;
 }
 
@@ -258,10 +269,12 @@ double averageList(const List* list){
 		// Move to next element
 		current = current->next;
 	}
+	
+	// Return list average
 	return average;
 }
 
-// Element in list
+// Contains element
 bool inList(const List* list, const int num){
 	// Check on list
 	if (list == NULL || list->first == NULL){
@@ -272,12 +285,14 @@ bool inList(const List* list, const int num){
 	Element* current = list->first;
 	while (current != NULL){
 		if (current->number == num){
+			// Return true
 			return true;
 		}
 		// Move to next element
 		current = current->next;
 	}
 	
+	// Return false
 	return false;
 }
 
@@ -292,12 +307,14 @@ bool isSorted(const List* list){
 	Element* current = list->first;
 	while (current->next != NULL){
 		if (current->number > current->next->number){
+			// Return false
 			return false;
 		}
 		// Move to next element
 		current = current->next;
 	}
 	
+	// Return true
 	return true;
 }
 
@@ -308,13 +325,14 @@ int locateList(const List* list, const int num){
 		exit(EXIT_FAILURE);
 	}
 	
-	// Initialise position index and first element
+	// Initialize position index and first element
 	int pos = 1;
 	Element* current = list->first;
 	
 	// Loop through all list elements
 	while (current != NULL){
 		if (current->number == num){
+			// Return position
 			return pos;
 		}
 		// Move to next element
@@ -322,6 +340,7 @@ int locateList(const List* list, const int num){
 		pos++;
 	}
 	
+	// Return zero
 	return 0;
 }
 
@@ -337,7 +356,7 @@ Element* elementAt(const List* list, const int pos){
 		exit(EXIT_FAILURE);
 	}
 	
-	// Initialise element and index
+	// Initialize element and index
 	Element* elt = list->first;
 	int i = 1;
 	
@@ -347,6 +366,7 @@ Element* elementAt(const List* list, const int pos){
 		i++;
 	}
 	
+	// Return element
 	return elt;
 }
 
@@ -484,14 +504,15 @@ void moveElement(List* list, const int posi, const int posf){
 	}
 }
 
-// Partition list
-void partitionNumList(List* list, const int n){
+// Partition list around number
+int partitionNumList(List* list, const int n){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
 	}
 	
 	// Initialization elements
+	int pivot = 0;
 	Element* current = list->first;
 	Element* prev = NULL;
 	Element* low = NULL;
@@ -517,8 +538,9 @@ void partitionNumList(List* list, const int n){
 					low->next = current;
 				}
 			}
-			// Update low element
+			// Update low element and increment pivot
 			low = current;
+			pivot++;
 		}
 		else{
 			// Update prev element
@@ -527,6 +549,9 @@ void partitionNumList(List* list, const int n){
 		// move current element to next of prev
 		current = prev->next;
 	}
+	
+	// Return pivot position
+	return pivot;
 }
 
 // Reverse list order
@@ -665,12 +690,13 @@ List* mergeList(const List* list1, const List* list2){
 		current2 = current2->next;
 	}
 	
+	// Return merged list
 	return list;
 }
 
 // Clone list
 List* cloneList(const List* list){
-	// Check on list1
+	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
 	}
@@ -692,10 +718,11 @@ List* cloneList(const List* list){
 		current = current->next;
 	}
 	
+	// Return cloned list
 	return clone;
 }
 
-// Display list function
+// Display list
 void displayList(const List* list){
 	// Check on list
 	if (list == NULL || list->first == NULL){
@@ -714,7 +741,7 @@ void displayList(const List* list){
 	printf("NULL\n");
 }
 
-// Size list function
+// Size list
 int sizeList(const List* list){
 	// Check on list
 	if (list == NULL){

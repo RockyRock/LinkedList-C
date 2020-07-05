@@ -123,9 +123,9 @@ int main(int argc, char *argv[]){
 	printf("List 2 size: %d\n", sizeList(mylist2));
 	
 	// Partition list
-	printf("Partition list1 with number 1\n");
-	partitionNumList(mylist1, 1);
-	displayList(mylist1);
+	printf("Partition list1 with number 3\n");
+	printf("Pivot value = %d\n", partitionNumList(mylist2, 3));
+	displayList(mylist2);
 	
 	// Clone list
 	List* clone = cloneList(mylist2);
