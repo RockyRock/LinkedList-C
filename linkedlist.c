@@ -641,8 +641,15 @@ int partitionEltList(List* list, Element* elt){
 		current = prev->next;
 	}
 	
-	// Return pivot position
-	return pivot;
+	// Return pivot
+	if (flag){
+		// Return zero if elt not in list
+		return 0;
+	}
+	else{
+		// Return pivot value if elt in list
+		return pivot;
+	}
 }
 
 // Reverse list order

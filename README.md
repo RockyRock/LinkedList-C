@@ -42,6 +42,8 @@ This section contains some explanations about the functions contained in the lib
 
 * `int partitionNumList(List* list, const int n)`: Partitions the list by placing the elements less than `n` at the beginning and the elements greater or equal to `n` at the end, the position of the last element strictly less than `n` is returned.
 
+* `int partitionEltList(List* list, Element* elt)`: Partitions the list by placing the elements strictly less than `elt` number at the beginning and the elements strictly greater towards the end, the position of the pivot element `elt` is returned.
+
 * `void reverseList(List* list)`: Reverse all the elements of the list.
 
 * `void bubbleSortList(List* list)`: Sort the list in ascending order using the bubble sort algorithm.
