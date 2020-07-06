@@ -624,14 +624,14 @@ int partitionEltList(List* list, Element* elt){
 					eql->next = current;
 				}
 			}
-		// Update eql element and pivot until elt found
-		eql = current;
-		if (flag){
-			pivot++;
-			if (current == elt){
-				flag = false;
+			// Update eql element and pivot until elt found
+			eql = current;
+			if (flag){
+				pivot++;
+				if (current == elt){
+					flag = false;
+				}
 			}
-		}
 		}
 		else{
 			// Update prev element
