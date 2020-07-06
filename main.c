@@ -122,9 +122,18 @@ int main(int argc, char *argv[]){
 	displayList(mylist2);
 	printf("List 2 size: %d\n", sizeList(mylist2));
 	
-	// Partition list
-	printf("Partition list1 with number 3\n");
+	// Partition num list
+	printf("Partition list 2 with number 3\n");
 	printf("Pivot value = %d\n", partitionNumList(mylist2, 3));
+	displayList(mylist2);
+	
+	// Partition elt list
+	position = 4;
+	printf("Partition list 2 with element in position %d\n", position);
+	addElement(mylist2, 3);
+	addElement(mylist2, 3);
+	displayList(mylist2);
+	printf("Pivot value = %d\n", partitionEltList(mylist2, elementAt(mylist2, position)));
 	displayList(mylist2);
 	
 	// Clone list

@@ -528,7 +528,7 @@ int partitionNumList(List* list, const int n){
 				// Move current element to the low side
 				prev->next = current->next;
 				if (low == NULL){
-					// Case low  NULL
+					// Case low NULL
 					current->next = list->first;
 					list->first = current;
 				}
@@ -546,7 +546,98 @@ int partitionNumList(List* list, const int n){
 			// Update prev element
 			prev = current;
 		}
-		// move current element to next of prev
+		// Move current element to next of prev
+		current = prev->next;
+	}
+	
+	// Return pivot position
+	return pivot;
+}
+
+// Partition list around element
+int partitionEltList(List* list, Element* elt){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Check on elt
+	if (elt == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialization elements
+	bool flag = true;
+	int pivot = 0;
+	Element* current = list->first;
+	Element* prev = NULL;
+	Element* low = NULL;
+	Element* eql = NULL;
+	
+	// Loop throught list elements
+	while (current != NULL){
+		// Low side check
+		if (current->number < elt->number){
+			if (low == prev){
+				// Update prev element
+				prev = current;
+			}
+			else{
+				// Move current element to the low side
+				prev->next = current->next;
+				if (low == NULL){
+					// Case low NULL
+					current->next = list->first;
+					list->first = current;
+				}
+				else{
+					// Insert current after low element
+					current->next = low->next;
+					low->next = current;
+				}
+			}
+			// Update low element and pivot
+			low = current;
+			pivot++;
+		}
+		// Equal side check
+		else if (current->number == elt->number){
+			if (eql == prev){
+				// Update prev element
+				prev = current;
+			}
+			else{
+				// Move current element to the eql side
+				prev->next = current->next;
+				if (eql == NULL && low == NULL){
+					// Case eql and low NULL
+					current->next = list->first;
+					list->first = current;
+				}
+				else{
+					// Case eql NULL
+					if (eql == NULL){
+						eql = low;
+					}
+					// Insert current after eql element
+					current->next = eql->next;
+					eql->next = current;
+				}
+			}
+		// Update eql element and pivot until elt found
+		eql = current;
+		if (flag){
+			pivot++;
+			if (current == elt){
+				flag = false;
+			}
+		}
+		}
+		else{
+			// Update prev element
+			prev = current;
+		}
+		// Move current element to next of prev
 		current = prev->next;
 	}
 	
