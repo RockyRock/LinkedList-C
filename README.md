@@ -8,9 +8,9 @@ This section contains some explanations about the functions contained in the lib
 
 * `List* initializeList()`: Initializes a list with one element containing the integer 0.
 
-* `void addElement(List* list, const int newNumber)`: Add a new element containing `newNumber`, in first position within the list.
+* `void addElement(List* list, const int num)`: Add a new element containing `num`, in first position within the list.
 
-* `void addElementAt(List* list, const int pos, const int newNumber)`: Add a new element containing `newNumber`, in position `pos` within the list. Where `pos = 1` and `pos = length` respectively represent the first and last elements of the list.
+* `void addElementAt(List* list, const int pos, const int num)`: Add a new element containing `num`, in position `pos` within the list. Where `pos = 1` and `pos = length` respectively represent the first and last elements of the list.
 
 * `void deleteElement(List* list)`: Delete the first element of the list.
 
@@ -40,9 +40,9 @@ This section contains some explanations about the functions contained in the lib
 
 * `void moveElement(List* list, const int posi, const int posf)`: Move element located at `posi` to a new position `posf`.
 
-* `int partitionNumList(List* list, const int n)`: Partitions the list by placing the elements less than `n` at the beginning and the elements greater or equal to `n` at the end, the position of the last element strictly less than `n` is returned.
+* `int partitionNumList(List* list, const int num)`: Partitions the list by placing the elements less than `num` at the beginning and the elements greater or equal to `num` at the end, the position index of the last element strictly less than `num` is returned.
 
-* `int partitionEltList(List* list, Element* elt)`: Partitions the list by placing the elements strictly less than `elt` number at the beginning and the elements strictly greater towards the end, the position of the pivot element `elt` is returned.
+* `int partitionEltList(List* list, Element* elt)`: Partitions the list by placing the elements strictly less than `elt` number at the beginning and the elements strictly greater towards the end, the position index of the pivot element `elt` is returned.
 
 * `void reverseList(List* list)`: Reverse all the elements of the list.
 

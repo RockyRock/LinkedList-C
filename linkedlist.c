@@ -29,7 +29,7 @@ List* initializeList(){
 }
 
 // Add element
-void addElement(List* list, const int newNumber){
+void addElement(List* list, const int num){
 	// Creation of new element
 	Element *new = malloc(sizeof(*new));
 	// Check on list and first element
@@ -37,7 +37,7 @@ void addElement(List* list, const int newNumber){
 		exit(EXIT_FAILURE);
 	}
 	// Set new element number
-	new->number = newNumber;
+	new->number = num;
 	
 	// Insertion new element
 	new->next = list->first;
@@ -48,7 +48,7 @@ void addElement(List* list, const int newNumber){
 }
 
 // Add element at
-void addElementAt(List* list, const int pos, const int newNumber){
+void addElementAt(List* list, const int pos, const int num){
 	// Creation of new element
 	Element *new = malloc(sizeof(*new));
 	if (list == NULL || new == NULL){
@@ -56,16 +56,16 @@ void addElementAt(List* list, const int pos, const int newNumber){
 	}
 	
 	// Check position range
-	if (pos > list->length + 1 || pos < 1){
+	if (pos < 1 || pos > list->length + 1){
 		exit(EXIT_FAILURE);
 	}
 	
 	// Set new element number
-	new->number = newNumber;
+	new->number = num;
 	
 	// Insert element at index pos
 	if (pos == 1){
-		addElement(list, newNumber);
+		addElement(list, num);
 	}
 	else{
 		// Loop find element before index pos
@@ -107,7 +107,7 @@ void deleteElementAt(List* list, const int pos){
 	}
 	
 	// Check position range
-	if (pos > list->length || pos <= 0){
+	if (pos < 1 || pos > list->length){
 		exit(EXIT_FAILURE);
 	}
 	
@@ -505,7 +505,7 @@ void moveElement(List* list, const int posi, const int posf){
 }
 
 // Partition list around number
-int partitionNumList(List* list, const int n){
+int partitionNumList(List* list, const int num){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -519,7 +519,7 @@ int partitionNumList(List* list, const int n){
 	
 	// Loop throught list elements
 	while (current != NULL){
-		if (current->number < n){
+		if (current->number < num){
 			if (low == prev){
 				// Update prev element
 				prev = current;

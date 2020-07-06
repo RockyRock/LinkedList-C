@@ -39,16 +39,19 @@ Function prototypes
 List* initializeList();
 
 // Add element
-void addElement(List* list, const int newNumber);
+void addElement(List* list, const int num);
 
 // Add element at
-void addElementAt(List* list, const int pos, const int newNumber);
+void addElementAt(List* list, const int pos, const int num);
 
 // Delete element
 void deleteElement(List* list);
 
 // Delete element at
 void deleteElementAt(List* list, const int pos);
+
+// Update element
+void updateElement(List* list, const int pos, const int num);
 
 // Pop element
 int popList(List* list);
@@ -87,7 +90,7 @@ void swapElement(List* list, const int pos1, const int pos2);
 void moveElement(List* list, const int posi, const int posf);
 
 // Partition list around number
-int partitionNumList(List* list, const int n);
+int partitionNumList(List* list, const int num);
 
 // Partition list around element
 int partitionEltList(List* list, Element* elt);
