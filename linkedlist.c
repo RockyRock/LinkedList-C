@@ -132,6 +132,32 @@ void deleteElementAt(List* list, const int pos){
 	}
 }
 
+// Update element
+void updateElement(List* list, const int pos, const int num){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Check position range
+	if (pos < 1 || pos > list->length){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialization idx and current
+	int idx = 0;
+	Element* current = list->first;
+	
+	// Loop through list element
+	while (idx < pos -1){
+		current = current->next;
+		idx++;
+	}
+	
+	// Update the element number at pos
+	current->number = num;
+}
+
 // Pop element
 int popList(List* list){
 	// Check on list

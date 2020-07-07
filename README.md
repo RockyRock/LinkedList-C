@@ -16,6 +16,8 @@ This section contains some explanations about the functions contained in the lib
 
 * `void deleteElementAt(List* list, const int pos)`: Delete an element located at position `pos`, where, `pos = 1` and `pos = length` respectively represent the first and last elements of the list.
 
+* `void updateElement(List* list, const int pos, const int num)`: Updates the number of the element located at the position index `pos`, with the number `num`.
+
 * `int popList(List* list)`: Returns the value of the first element of the list and deletes it.
 
 * `int minList(const List* list)`: Returns the minimum element number of the list.

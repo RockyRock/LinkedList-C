@@ -127,6 +127,13 @@ int main(int argc, char *argv[]){
 	printf("Pivot value = %d\n", partitionNumList(mylist2, 3));
 	displayList(mylist2);
 	
+	// Update element
+	position = 2;
+	int num = -1;
+	printf("Update element in pos: %d by %d\n", position, num);
+	updateElement(mylist2, position, num);
+	displayList(mylist2);
+	
 	// Partition elt list
 	position = 4;
 	printf("Partition list 2 with element in position %d\n", position);
