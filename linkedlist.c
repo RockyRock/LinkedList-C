@@ -581,7 +581,7 @@ int partitionNumList(List* list, const int num){
 }
 
 // Partition list around element
-int partitionEltList(List* list, Element* elt){
+int* partitionEltList(List* list, Element* elt){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -593,8 +593,9 @@ int partitionEltList(List* list, Element* elt){
 	}
 	
 	// Initialization elements
+	bool first = true;
 	bool flag = true;
-	int pivot = 0;
+	int* index = calloc(3,sizeof(int));
 	Element* current = list->first;
 	Element* prev = NULL;
 	Element* low = NULL;
@@ -622,9 +623,11 @@ int partitionEltList(List* list, Element* elt){
 					low->next = current;
 				}
 			}
-			// Update low element and pivot
+			// Update low element and increment index array
 			low = current;
-			pivot++;
+			index[0]++;
+			index[1]++;
+			index[2]++;
 		}
 		// Equal side check
 		else if (current->number == elt->number){
@@ -650,14 +653,19 @@ int partitionEltList(List* list, Element* elt){
 					eql->next = current;
 				}
 			}
-			// Update eql element and pivot until elt found
+			// Update eql element and increment index array
 			eql = current;
+			if (first){
+				index[0]++;
+				first = false;
+			}
 			if (flag){
-				pivot++;
+				index[1]++;
 				if (current == elt){
 					flag = false;
 				}
 			}
+			index[2]++;
 		}
 		else{
 			// Update prev element
@@ -667,15 +675,17 @@ int partitionEltList(List* list, Element* elt){
 		current = prev->next;
 	}
 	
-	// Return pivot
-	if (flag){
-		// Return zero if elt not in list
-		return 0;
+	// Check if a first or elt were found
+	if (first){
+		index[0] = 0;
+		index[1] = 0;
 	}
-	else{
-		// Return pivot value if elt in list
-		return pivot;
+	else if (flag){
+		index[1] = 0;
 	}
+	
+	// Return array of index
+	return index;
 }
 
 // Reverse list order

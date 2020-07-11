@@ -135,12 +135,16 @@ int main(int argc, char *argv[]){
 	displayList(mylist2);
 	
 	// Partition elt list
-	position = 4;
+	position = 5;
 	printf("Partition list 2 with element in position %d\n", position);
 	addElement(mylist2, 3);
 	addElement(mylist2, 3);
 	displayList(mylist2);
-	printf("Pivot value = %d\n", partitionEltList(mylist2, elementAt(mylist2, position)));
+	int* idx = partitionEltList(mylist2, elementAt(mylist2, position));
+	printf("Index left = %d\n", idx[0]);
+	printf("Index pivot = %d\n", idx[1]);
+	printf("Index right = %d\n", idx[2]);
+	free(idx);
 	displayList(mylist2);
 	
 	// Clone list
@@ -177,7 +181,10 @@ int main(int argc, char *argv[]){
 	
 	// Delete mylist
 	deleteList(mylist);
-	printf("*** Delete mylist ***\n");
+	deleteList(mylist1);
+	deleteList(mylist2);
+	deleteList(clone);
+	printf("*** Delete mylists ***\n");
 	
 	return 0;
 }

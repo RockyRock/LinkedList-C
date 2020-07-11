@@ -93,7 +93,7 @@ void moveElement(List* list, const int posi, const int posf);
 int partitionNumList(List* list, const int num);
 
 // Partition list around element
-int partitionEltList(List* list, Element* elt);
+int* partitionEltList(List* list, Element* elt);
 
 // Reverse list
 void reverseList(List* list);
