@@ -688,6 +688,150 @@ int* partitionEltList(List* list, Element* elt){
 	return index;
 }
 
+// Partition sublist around element between posi and posf
+int* partitionEltSublist(List* list, Element* elt, const int posi, const int posf){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Check on position integers
+	if (posi > list->length || posi < 1 || posf > list->length || posf < 1 || posi > posf){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Check on elt
+	if (elt == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialization elements
+	bool first = true;
+	bool flag = true;
+	int* index = calloc(3,sizeof(int));
+	int pos = 1;
+	Element* current = list->first;
+	Element* low = NULL;
+	Element* eql = NULL;
+	Element* prev = NULL;
+	Element* last = NULL;
+	
+	// Set current to element at posi
+	while (pos < posi){
+		low = current;
+		prev = current;
+		current = current->next;
+		pos++;
+	}
+	
+	// Set last to element at posf
+	last = current;
+	while (pos <= posf){
+		last = last->next;
+		pos++;
+	}
+	
+	// Loop throught list elements
+	while (current != last){
+		// Low side check
+		if (current->number < elt->number){
+			if (low == prev){
+				// Update prev element
+				prev = current;
+			}
+			else{
+				// Move current element to the low side
+				prev->next = current->next;
+				if (low == NULL){
+					// Case low NULL
+					current->next = list->first;
+					list->first = current;
+				}
+				else{
+					// Insert current after low element
+					current->next = low->next;
+					low->next = current;
+				}
+			}
+			// Update low element and increment index array
+			low = current;
+			index[0]++;
+			index[1]++;
+			index[2]++;
+		}
+		// Equal side check
+		else if (current->number == elt->number){
+			// Move current element to the eql side
+			if (eql == NULL && low == NULL){
+				// Case eql and low NULL
+				if (prev == NULL){
+					// Update prev element
+					prev = current;
+				}
+				else{
+					// Insert at list first
+					prev->next = current->next;
+					current->next = list->first;
+					list->first = current;
+				}
+			}
+			else{
+				// Case eql NULL
+				if (eql == NULL){
+					eql = low;
+				}
+				// Check if eql is same as prev
+				if (eql == prev){
+					// Update prev element
+					prev = current;
+				}
+				else{
+					// Insert current after eql element
+					prev->next = current->next;
+					current->next = eql->next;
+					eql->next = current;
+				}
+			}
+			// Update eql element and increment index array
+			eql = current;
+			if (first){
+				index[0]++;
+				first = false;
+			}
+			if (flag){
+				index[1]++;
+				if (current == elt){
+					flag = false;
+				}
+			}
+			index[2]++;
+		}
+		else{
+			// Update prev element
+			prev = current;
+		}
+		// Move current element to next of prev
+		current = prev->next;
+	}
+
+	// Shift indices by posi - 1
+	index[0] += posi - 1;
+	index[1] += posi - 1;
+	index[2] += posi - 1;
+
+	// Check if first or elt were found
+	if (first){
+		index[0] = 0;
+		index[1] = 0;
+	}
+	else if (flag){
+		index[1] = 0;
+	}
+	
+	// Return array of index
+	return index;
+}
+
 // Reverse list order
 void reverseList(List* list){
 	// Check on list

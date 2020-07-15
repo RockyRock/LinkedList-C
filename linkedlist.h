@@ -95,6 +95,9 @@ int partitionNumList(List* list, const int num);
 // Partition list around element
 int* partitionEltList(List* list, Element* elt);
 
+// Partition sublist around element between posi and posf
+int* partitionEltSublist(List* list, Element* elt, const int posi, const int posf);
+
 // Reverse list
 void reverseList(List* list);
 

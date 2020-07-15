@@ -147,6 +147,20 @@ int main(int argc, char *argv[]){
 	free(idx);
 	displayList(mylist2);
 	
+	// Partition elt sublist
+	printf("\n\n************\n");
+	position = 3;
+	int lo = 1;
+	int hi = 3;
+	printf("Partition sublist 2 with element in position %d between %d and %d\n", position, lo, hi);
+	idx = partitionEltSublist(mylist2, elementAt(mylist2, position), lo, hi);
+	printf("Index left = %d\n", idx[0]);
+	printf("Index pivot = %d\n", idx[1]);
+	printf("Index right = %d\n", idx[2]);
+	free(idx);
+	displayList(mylist2);
+	printf("************\n\n");
+	
 	// Clone list
 	List* clone = cloneList(mylist2);
 	printf("The cloned list is: ");
