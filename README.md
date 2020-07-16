@@ -44,7 +44,9 @@ This section contains some explanations about the functions contained in the lib
 
 * `int partitionNumList(List* list, const int num)`: Partitions the list by placing the elements less than `num` at the beginning and the elements greater or equal to `num` at the end, the position index of the last element strictly less than `num` is returned.
 
-* `int* partitionEltList(List* list, Element* elt)`: Partitions the list by placing the elements strictly less than `elt` number at the beginning and the elements strictly greater towards the end. The position indices of the right element equal to `elt` number, the pivot element `elt` and the left element equal to `elt` number are returned in an integer array. Corresponding indices are set to zero if `elt` does not belong to `list` or if no elements are equal to `elt` number.
+* `int* partitionEltList(List* list, Element* elt)`: Partitions the list by placing the elements strictly less than `elt` number at the beginning and the elements strictly greater towards the end. The position indices of the right element equal to `elt` number, the pivot element `elt` and the left element equal to `elt` number are returned as an integer array. Corresponding indices are set to zero if `elt` does not belong to `list` or if no elements are equal to `elt` number.
+
+* `int* partitionEltSublist(List* list, Element* elt, const int posi, const int posf)`: Partitions the sublist obtained from `list` between the position index `posi` and `posf` included, by placing the elements strictly less than `elt` number at the beginning and the elements strictly greater towards the end. The position indices of the right element equal to `elt` number, the pivot element `elt` and the left element equal to `elt` number are returned as an integer array. Corresponding indices are set to zero if `elt` does not belong to `list` or if no elements are equal to `elt` number. 
 
 * `void reverseList(List* list)`: Reverse all the elements of the list.
 
