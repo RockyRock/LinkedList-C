@@ -107,6 +107,12 @@ void bubbleSortList(List* list);
 // Insertion sort list
 void insertionSortList(List* list);
 
+// Quick sort sublist
+void quickSortSublist(List* list, const int lo, const int hi);
+
+// Quick sort list
+void quickSortList(List* list);
+
 // Merge list
 List* mergeList(const List* list1, const List* list2);
 

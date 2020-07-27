@@ -930,6 +930,35 @@ void insertionSortList(List* list){
 	}
 }
 
+
+// Quick sort sublist
+void quickSortSublist(List* list, const int lo, const int hi){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Partition list
+	if (lo < hi){
+		// Select middle pivot
+		int pivot = (lo+hi)/2;
+		// Partition sublist
+		int* idx = partitionEltSublist(list, elementAt(list, pivot), lo, hi);
+		// Iterate left side
+		quickSortSublist(list, lo, idx[0] - 1);
+		// Iterate right side
+		quickSortSublist(list, idx[2] + 1, hi);
+		// Free idx
+		free(idx);
+	}
+}
+
+// Quick sort list
+void quickSortList(List* list){
+	// Quick sort for the entire list
+	quickSortSublist(list, 1, list->length);
+}
+
 // Merge list
 List* mergeList(const List* list1, const List* list2){
 	// Check on list1

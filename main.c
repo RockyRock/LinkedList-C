@@ -148,7 +148,6 @@ int main(int argc, char *argv[]){
 	displayList(mylist2);
 	
 	// Partition elt sublist
-	printf("\n\n************\n");
 	position = 3;
 	int lo = 1;
 	int hi = 3;
@@ -159,7 +158,16 @@ int main(int argc, char *argv[]){
 	printf("Index right = %d\n", idx[2]);
 	free(idx);
 	displayList(mylist2);
-	printf("************\n\n");
+	
+	// Quick sort sublist
+	lo = 1;
+	hi = 11;
+	printf("Reverse list\n");
+	reverseList(mylist2);
+	displayList(mylist2);
+	printf("Quick sort sub list between elements %d and %d\n", lo, hi);
+	quickSortSublist(mylist2, lo, hi);
+	displayList(mylist2);
 	
 	// Clone list
 	List* clone = cloneList(mylist2);
