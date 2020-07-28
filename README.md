@@ -54,6 +54,10 @@ This section contains some explanations about the functions contained in the lib
 
 * `void insertionSortList(List* list)`: Sort the list in ascending order using the insertion sort algorithm.
 
+* `void quickSortSublist(List* list, const int lo, const int hi)`: Sort the sublist obtained from `list` between `lo` and `hi` in ascending order using the quick sort algorithm.
+
+* `void quickSortList(List* list)`: Sort the list in ascending order using the quick sort algorithm.
+
 * `List* mergeList(const List* list1, const List* list2)`: Merges `list1` with `list2` into a single list object.
 
 * `List* cloneList(const List* list)`: Clones the list provided as an input.

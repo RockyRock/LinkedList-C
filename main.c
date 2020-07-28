@@ -161,13 +161,22 @@ int main(int argc, char *argv[]){
 	
 	// Quick sort sublist
 	lo = 1;
-	hi = 11;
+	hi = 5;
 	printf("Reverse list\n");
 	reverseList(mylist2);
 	displayList(mylist2);
 	printf("Quick sort sub list between elements %d and %d\n", lo, hi);
 	quickSortSublist(mylist2, lo, hi);
 	displayList(mylist2);
+	reverseList(mylist2);
+	
+	// Sort list with quick sort
+	printf("Sort list with quick sort\n");
+	begin = clock();
+	quickSortList(mylist2);
+	end = clock();
+	displayList(mylist2);
+	printf("Execution time: %lf\n", (double) (end - begin)/CLOCKS_PER_SEC);
 	
 	// Clone list
 	List* clone = cloneList(mylist2);
