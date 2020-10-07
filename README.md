@@ -50,6 +50,8 @@ This section contains some explanations about the functions contained in the lib
 
 * `void reverseList(List* list)`: Reverse all the elements of the list.
 
+* `void shuffleList(List* list)`: Shuffle all the elements of the list.
+
 * `void bubbleSortList(List* list)`: Sort the list in ascending order using the bubble sort algorithm.
 
 * `void insertionSortList(List* list)`: Sort the list in ascending order using the insertion sort algorithm.

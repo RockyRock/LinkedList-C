@@ -859,6 +859,19 @@ void reverseList(List* list){
 	list->first = previous;
 }
 
+// Shuffle list
+void shuffleList(List* list){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Loop through list and shuffle elements
+	for(int i = 1; i < list->length + 1; i++){
+		moveElement(list, i, 1 + rand() % (list->length));
+	}
+}
+
 // Sort list
 void bubbleSortList(List* list){
 	// Check on list

@@ -101,6 +101,9 @@ int* partitionEltSublist(List* list, Element* elt, const int posi, const int pos
 // Reverse list
 void reverseList(List* list);
 
+// Shuffle list
+void shuffleList(List* list);
+
 // Bubble sort list
 void bubbleSortList(List* list);
 

@@ -13,6 +13,9 @@ int main(int argc, char *argv[]){
 	printf("Linked list test\n");
 	printf("****************\n");
 	
+	// Initialize random seed number
+	srand((unsigned) time(NULL));
+	
 	// Initialize mylist and display
 	int position = 0;
 	List* mylist = initializeList();
@@ -45,6 +48,12 @@ int main(int argc, char *argv[]){
 	// Reverse list
 	reverseList(mylist);
 	printf("Reverse list\n");
+	displayList(mylist);
+	printf("List size: %d\n", sizeList(mylist));
+	
+	// Shuffle list
+	shuffleList(mylist);
+	printf("Shuffle list\n");
 	displayList(mylist);
 	printf("List size: %d\n", sizeList(mylist));
 	
