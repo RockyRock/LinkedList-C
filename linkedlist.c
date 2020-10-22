@@ -832,6 +832,41 @@ int* partitionEltSublist(List* list, Element* elt, const int posi, const int pos
 	return index;
 }
 
+// Front-back split list
+void frontBackSplitList(List* list, List* front, List* back){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Check list size
+	if (list->length <= 1){
+		return;
+	}
+	
+	// Set front list to list
+	front->first = list->first;
+	front->length = (list->length + 1)/2;
+	
+	// Initialize current element
+	Element* current = list->first;
+	
+	// Loop through half the list
+	for(int i = 1; i < (list->length + 1)/2; i++){
+		current = current->next;
+	}
+	
+	// Set back list
+	back->first = current->next;
+	back->length = (list->length)/2;
+	
+	// Sever front-back link
+	current->next = NULL;
+	
+	// Adjust initial list size
+	list->length = front->length;
+}
+
 // Reverse list order
 void reverseList(List* list){
 	// Check on list

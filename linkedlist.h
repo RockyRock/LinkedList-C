@@ -98,6 +98,9 @@ int* partitionEltList(List* list, Element* elt);
 // Partition sublist around element between posi and posf
 int* partitionEltSublist(List* list, Element* elt, const int posi, const int posf);
 
+// Front-back split list
+void frontBackSplitList(List* list, List* front, List* back);
+
 // Reverse list
 void reverseList(List* list);
 
