@@ -99,7 +99,7 @@ int* partitionEltList(List* list, Element* elt);
 int* partitionEltSublist(List* list, Element* elt, const int posi, const int posf);
 
 // Front-back split list
-void frontBackSplitList(List* list, List* front, List* back);
+List* frontBackSplitList(List* list);
 
 // Reverse list
 void reverseList(List* list);

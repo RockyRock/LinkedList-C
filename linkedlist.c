@@ -833,7 +833,7 @@ int* partitionEltSublist(List* list, Element* elt, const int posi, const int pos
 }
 
 // Front-back split list
-void frontBackSplitList(List* list, List* front, List* back){
+List* frontBackSplitList(List* list){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
@@ -841,30 +841,35 @@ void frontBackSplitList(List* list, List* front, List* back){
 	
 	// Check list size
 	if (list->length <= 1){
-		return;
+		return NULL;
 	}
 	
-	// Set front list to list
-	front->first = list->first;
-	front->length = (list->length + 1)/2;
+	// Memory allocation for back list
+	List* back = malloc(sizeof(*list));
+	if (back == NULL){
+		exit(EXIT_FAILURE);
+	}
 	
 	// Initialize current element
 	Element* current = list->first;
 	
-	// Loop through half the list
+	// Loop through front list
 	for(int i = 1; i < (list->length + 1)/2; i++){
 		current = current->next;
 	}
 	
-	// Set back list
+	// Set back list first and size
 	back->first = current->next;
 	back->length = (list->length)/2;
 	
 	// Sever front-back link
 	current->next = NULL;
 	
-	// Adjust initial list size
-	list->length = front->length;
+	// Set front list size
+	list->length = (list->length + 1)/2;
+	
+	// Return back list
+	return back;
 }
 
 // Reverse list order
@@ -977,7 +982,6 @@ void insertionSortList(List* list){
 		}
 	}
 }
-
 
 // Quick sort sublist
 void quickSortSublist(List* list, const int lo, const int hi){

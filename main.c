@@ -203,6 +203,15 @@ int main(int argc, char *argv[]){
 	displayList(clone);
 	printf("Execution time: %lf\n", (double) (end - begin)/CLOCKS_PER_SEC);
 	
+	// Front back split
+	List* back = frontBackSplitList(clone);
+	printf("Front list: ");
+	displayList(clone);
+	printf("Front list size: %d\n", sizeList(clone));
+	printf("Back list: ");
+	displayList(back);
+	printf("Back list size: %d\n", sizeList(back));
+	
 	// Check isSorted
 	printf("Is list cloned sorted? %d\n", isSorted(clone));
 	
