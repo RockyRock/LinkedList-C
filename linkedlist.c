@@ -1024,14 +1024,21 @@ List* mergeList(const List* list1, const List* list2){
 	}
 	
 	// Initialize new list
-	List* list = initializeList();
+	List* list = malloc(sizeof(*list));
+	Element* element = malloc(sizeof(*element));
+	if (list == NULL || element == NULL){
+		exit(EXIT_FAILURE);
+	}
 	
 	// Copy list1 in list
 	Element* current1 = list1->first;
 	while (current1 != NULL){
 		// Add new element in list
 		if (current1 == list1->first){
-			list->first->number = current1->number;
+			element->number = current1->number;
+			element->next = NULL;
+			list->first = element;
+			list->length = 1; 
 		}
 		else{
 			addElementAt(list, list->length + 1, current1->number);
@@ -1039,7 +1046,7 @@ List* mergeList(const List* list1, const List* list2){
 		// Move to next element
 		current1 = current1->next;
 	}
-	
+
 	// Add list2 in list
 	Element* current2 = list2->first;
 	while (current2 != NULL){
@@ -1051,6 +1058,84 @@ List* mergeList(const List* list1, const List* list2){
 	
 	// Return merged list
 	return list;
+}
+
+// Merge sorted list
+List* mergeSortedList(List* list1, List* list2){
+	// Check on list1
+	if (list1 == NULL || list1->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+
+	// Check on list2
+	if (list2 == NULL || list2->first == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Element and size initialization
+	Element* elt1 = list1->first;
+	Element* elt2 = list2->first;
+	Element* current = NULL;
+	
+	// Check smallest element list
+	if (elt1->number <= elt2->number){
+		current = elt1;
+		elt1 = elt1->next;
+		list1->length = list1->length + list2->length;
+		free(list2);
+		list2 = NULL;
+	}
+	else{
+		current = elt2;
+		elt2 = elt2->next;
+		list2->length = list1->length + list2->length;
+		free(list1);
+		list1 = NULL;
+	}
+	
+	// Go through both sorted lists
+	while (elt1 != NULL && elt2 != NULL){
+		if (current->next == elt1){
+			if (elt1->number <= elt2->number){
+				// Move current and elt1 pointers to next
+				current = current->next;
+				elt1 = elt1->next;
+			}
+			else{
+				// Add elt2 after current
+				current->next = elt2;
+				elt2 = elt2->next;
+			}
+		}
+		else{
+			if (elt2->number <= elt1->number){
+				// Move current and elt2 pointers to next
+				current = current->next;
+				elt2 = elt2->next;
+			}
+			else{
+				// Add elt1 after current
+				current->next = elt1;
+				elt1 = elt1->next;
+			}
+		}
+	}
+	
+	// Check for end of lists
+	if (elt1 == NULL && elt2 != NULL){
+		current->next = elt2;
+	}
+	if (elt2 == NULL && elt1 != NULL){
+		current->next = elt1;
+	}
+		
+	// Return merged list sorted
+	if (list2 == NULL){
+		return list1;
+	}
+	else{
+		return list2;
+	}
 }
 
 // Clone list

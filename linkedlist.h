@@ -122,6 +122,9 @@ void quickSortList(List* list);
 // Merge list
 List* mergeList(const List* list1, const List* list2);
 
+// Merge sorted list
+List* mergeSortedList(List* list1, List* list2);
+
 // Clone list
 List* cloneList(const List* list);
 

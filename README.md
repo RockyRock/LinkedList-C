@@ -62,7 +62,9 @@ This section contains some explanations about the functions contained in the lib
 
 * `void quickSortList(List* list)`: Sort the list in ascending order using the quick sort algorithm.
 
-* `List* mergeList(const List* list1, const List* list2)`: Merges `list1` with `list2` into a single new list object.
+* `List* mergeList(const List* list1, const List* list2)`: Merge `list1` with `list2` into a single new list object.
+
+* `List* mergeSortedList(List* list1, List* list2)`: .
 
 * `List* cloneList(const List* list)`: Clone the list provided as an input.
 

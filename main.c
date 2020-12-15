@@ -212,6 +212,11 @@ int main(int argc, char *argv[]){
 	displayList(back);
 	printf("Back list size: %d\n", sizeList(back));
 	
+	// Merge sorted list
+	List* merged = mergeSortedList(back, clone);
+	displayList(merged);
+	printf("Merged list size: %d\n", sizeList(merged));
+		
 	// Check isSorted
 	printf("Is list cloned sorted? %d\n", isSorted(clone));
 	
