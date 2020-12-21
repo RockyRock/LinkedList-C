@@ -204,21 +204,54 @@ int main(int argc, char *argv[]){
 	printf("Execution time: %lf\n", (double) (end - begin)/CLOCKS_PER_SEC);
 	
 	// Front back split
-	List* back = frontBackSplitList(clone);
+	List* front = initializeList();
+	printf("Front list initialised: ");
+	displayList(front);
+	popList(front);
+	printf("Front list size: %d\n", sizeList(front));
+	List* back = initializeList();
+	printf("Back list initialised: ");
+	displayList(back);
+	popList(back);
+	printf("Back list size: %d\n", sizeList(back));
+	frontBackSplitList(clone, front, back);
 	printf("Front list: ");
-	displayList(clone);
-	printf("Front list size: %d\n", sizeList(clone));
+	displayList(front);
+	printf("Front list size: %d\n", sizeList(front));
 	printf("Back list: ");
 	displayList(back);
 	printf("Back list size: %d\n", sizeList(back));
+	printf("List: ");
+	displayList(clone);
+	printf("List size: %d\n", sizeList(clone));
 	
 	// Merge sorted list
-	List* merged = mergeSortedList(back, clone);
+	List* merged = mergeSortedList(front,back);
 	displayList(merged);
 	printf("Merged list size: %d\n", sizeList(merged));
-		
+	
+	// Shuffle list
+	shuffleList(merged);
+	printf("Shuffle list\n");
+	displayList(merged);
+	printf("List size: %d\n", sizeList(merged));
+	
+	// Merge sort
+	// List* merge = initializeList();
+	// addElement(merge, 1);
+	// addElement(merge, 2);
+	// addElement(merge, -1);
+	printf("Sort list with merge sort\n");
+	displayList(merged);
+	begin = clock();
+	mergeSortList(merged);
+	end = clock();
+	displayList(merged);
+	printf("Execution time: %lf\n", (double) (end - begin)/CLOCKS_PER_SEC);
+	printf("List size: %d\n", sizeList(merged));
+	
 	// Check isSorted
-	printf("Is list cloned sorted? %d\n", isSorted(clone));
+	printf("Is list cloned sorted? %d\n", isSorted(merged));
 	
 	// Delete element at and display
 	position = 4;
@@ -237,7 +270,8 @@ int main(int argc, char *argv[]){
 	deleteList(mylist);
 	deleteList(mylist1);
 	deleteList(mylist2);
-	deleteList(clone);
+	deleteList(merged);
+	// deleteList(merge);
 	printf("*** Delete mylists ***\n");
 	
 	return 0;

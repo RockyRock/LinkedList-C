@@ -1018,6 +1018,34 @@ void quickSortList(List* list){
 	quickSortSublist(list, 1, list->length);
 }
 
+// Merge sort list
+void mergeSortList(List* list){
+	// Check on list
+	if (list == NULL || list->first == NULL){
+		return;
+	}
+	
+	if (list->length > 1){
+		// Allocate memory for front, back and merged lists
+		List* front = malloc(sizeof(*list));
+		List* back = malloc(sizeof(*list));
+		List* merged = malloc(sizeof(*list));
+		// Front back split
+		frontBackSplitList(list, front, back);
+		// Merge sort front list
+		mergeSortList(front);
+		// Merge sort back list
+		mergeSortList(back);
+		// Merge sorted front and back lists
+		merged = mergeSortedList(front, back);
+		// Allocate first and lenght to list
+		list->first = merged->first;
+		list->length = merged->length;
+		// Free merged list
+		free(merged);
+	}
+}
+
 // Merge list
 List* mergeList(const List* list1, const List* list2){
 	// Check on list1
