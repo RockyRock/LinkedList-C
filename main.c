@@ -237,10 +237,6 @@ int main(int argc, char *argv[]){
 	printf("List size: %d\n", sizeList(merged));
 	
 	// Merge sort
-	// List* merge = initializeList();
-	// addElement(merge, 1);
-	// addElement(merge, 2);
-	// addElement(merge, -1);
 	printf("Sort list with merge sort\n");
 	displayList(merged);
 	begin = clock();
@@ -271,7 +267,6 @@ int main(int argc, char *argv[]){
 	deleteList(mylist1);
 	deleteList(mylist2);
 	deleteList(merged);
-	// deleteList(merge);
 	printf("*** Delete mylists ***\n");
 	
 	return 0;
