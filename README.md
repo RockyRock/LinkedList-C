@@ -48,7 +48,7 @@ This section contains some explanations about the functions contained in the lib
 
 * `int* partitionEltSublist(List* list, Element* elt, const int posi, const int posf)`: Partition the sublist obtained from `list` between the position index `posi` and `posf` included, by placing the elements strictly less than `elt` number at the beginning and the elements strictly greater towards the end. The position indices of the right element equal to `elt` number, the pivot element `elt` and the left element equal to `elt` number are returned as an integer array. Corresponding indices are set to zero if `elt` does not belong to `list` or if no elements are equal to `elt` number. 
 
-* `List* frontBackSplitList(List* list)`: Split the list into a front and a back list, in case the initial list has an odd number of elements the front list gets one more element than the back list. The function argument `list` becomes the front list and the returned `list` becomes the back list.
+* `void frontBackSplitList(List* list, List* front, List* back)`: Split the list into a front and a back list, in case the initial list has an odd number of elements the front list gets one more element than the back list. The function argument `list` as well as the argument `front` both point to the front list.
 
 * `void reverseList(List* list)`: Reverse all the elements of the list.
 
@@ -64,7 +64,7 @@ This section contains some explanations about the functions contained in the lib
 
 * `List* mergeList(const List* list1, const List* list2)`: Merge `list1` with `list2` into a single new list object.
 
-* `List* mergeSortedList(List* list1, List* list2)`: .
+* `List* mergeSortedList(List* list1, List* list2)`: Merge two sorted lists in ascending order into one sorted list also in ascending order.
 
 * `List* cloneList(const List* list)`: Clone the list provided as an input.
 

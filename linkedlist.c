@@ -833,19 +833,23 @@ int* partitionEltSublist(List* list, Element* elt, const int posi, const int pos
 }
 
 // Front-back split list
-List* frontBackSplitList(List* list){
+void frontBackSplitList(List* list, List* front, List* back){
 	// Check on list
 	if (list == NULL || list->first == NULL){
 		exit(EXIT_FAILURE);
 	}
 	
-	// Check list size
+	// Check list length
 	if (list->length <= 1){
-		return NULL;
+		return;
 	}
 	
-	// Memory allocation for back list
-	List* back = malloc(sizeof(*list));
+	// Front list check
+	if (front == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Back list check
 	if (back == NULL){
 		exit(EXIT_FAILURE);
 	}
@@ -853,12 +857,15 @@ List* frontBackSplitList(List* list){
 	// Initialize current element
 	Element* current = list->first;
 	
+	// Set front first
+	front->first = list->first;
+	
 	// Loop through front list
 	for(int i = 1; i < (list->length + 1)/2; i++){
 		current = current->next;
 	}
 	
-	// Set back list first and size
+	// Set back list first and length
 	back->first = current->next;
 	back->length = (list->length)/2;
 	
@@ -866,10 +873,10 @@ List* frontBackSplitList(List* list){
 	current->next = NULL;
 	
 	// Set front list size
-	list->length = (list->length + 1)/2;
+	front->length = (list->length + 1)/2;
 	
-	// Return back list
-	return back;
+	// Set list to NULL and size to zero
+	list->length = front->length;
 }
 
 // Reverse list order
@@ -1064,12 +1071,12 @@ List* mergeList(const List* list1, const List* list2){
 List* mergeSortedList(List* list1, List* list2){
 	// Check on list1
 	if (list1 == NULL || list1->first == NULL){
-		exit(EXIT_FAILURE);
+		return list2;
 	}
-
+	
 	// Check on list2
 	if (list2 == NULL || list2->first == NULL){
-		exit(EXIT_FAILURE);
+		return list1;
 	}
 	
 	// Element and size initialization
@@ -1095,10 +1102,10 @@ List* mergeSortedList(List* list1, List* list2){
 	
 	// Go through both sorted lists
 	while (elt1 != NULL && elt2 != NULL){
+		// Compare elt1 and elt2
 		if (current->next == elt1){
 			if (elt1->number <= elt2->number){
 				// Move current and elt1 pointers to next
-				current = current->next;
 				elt1 = elt1->next;
 			}
 			else{
@@ -1110,7 +1117,6 @@ List* mergeSortedList(List* list1, List* list2){
 		else{
 			if (elt2->number <= elt1->number){
 				// Move current and elt2 pointers to next
-				current = current->next;
 				elt2 = elt2->next;
 			}
 			else{
@@ -1119,13 +1125,15 @@ List* mergeSortedList(List* list1, List* list2){
 				elt1 = elt1->next;
 			}
 		}
+		// Move current to next
+		current = current->next;
 	}
 	
-	// Check for end of lists
+	// Check for end of both lists
 	if (elt1 == NULL && elt2 != NULL){
 		current->next = elt2;
 	}
-	if (elt2 == NULL && elt1 != NULL){
+	else if (elt2 == NULL && elt1 != NULL){
 		current->next = elt1;
 	}
 		
