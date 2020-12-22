@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
 	// Initialize mylist and display
 	int position = 0;
 	List* mylist = initializeList();
-	printf("List pointer at creation %p\n", &mylist);
+	printf("List pointer at creation %p\n", mylist);
 	displayList(mylist);
 	printf("List size: %d\n", sizeList(mylist));
 	
@@ -93,6 +93,9 @@ int main(int argc, char *argv[]){
 	
 	// Check in list
 	printf("Element 0 in list? %d\n", inList(mylist, 0));
+	
+	// Check is equal
+	printf("Are lists equal? %d\n", isEqual(mylist, mylist));
 	
 	// Locate element
 	printf("Locate element 1 in list: %d\n", locateList(mylist, 1));
@@ -190,7 +193,7 @@ int main(int argc, char *argv[]){
 	// Clone list
 	List* clone = cloneList(mylist2);
 	printf("The cloned list is: ");
-	displayList(mylist2);
+	displayList(clone);
 	
 	// Check isSorted
 	printf("Is list cloned sorted? %d\n", isSorted(clone));
@@ -205,30 +208,30 @@ int main(int argc, char *argv[]){
 	
 	// Front back split
 	List* front = initializeList();
-	printf("Front list initialised: ");
+	printf("Front list at %p initialised: ", front);
 	displayList(front);
 	popList(front);
 	printf("Front list size: %d\n", sizeList(front));
 	List* back = initializeList();
-	printf("Back list initialised: ");
+	printf("Back list at %p initialised: ", back);
 	displayList(back);
 	popList(back);
 	printf("Back list size: %d\n", sizeList(back));
 	frontBackSplitList(clone, front, back);
-	printf("Front list: ");
+	printf("Front list at %p: ", front);
 	displayList(front);
 	printf("Front list size: %d\n", sizeList(front));
-	printf("Back list: ");
+	printf("Back list at %p: ", back);
 	displayList(back);
 	printf("Back list size: %d\n", sizeList(back));
-	printf("List: ");
+	printf("Clone list at %p: ", clone);
 	displayList(clone);
-	printf("List size: %d\n", sizeList(clone));
+	printf("Clone list size: %d\n", sizeList(clone));
 	
 	// Merge sorted list
 	List* merged = mergeSortedList(front,back);
+	printf("Merged list at %p: ", merged);
 	displayList(merged);
-	printf("Merged list size: %d\n", sizeList(merged));
 	
 	// Shuffle list
 	shuffleList(merged);

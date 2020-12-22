@@ -74,6 +74,9 @@ double averageList(const List* list);
 // Contains element
 bool inList(const List* list, const int num);
 
+// Equal list
+bool isEqual(const List* list1, const List* list2);
+
 // Sorted list
 bool isSorted(const List* list);
 

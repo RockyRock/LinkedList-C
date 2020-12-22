@@ -322,6 +322,32 @@ bool inList(const List* list, const int num){
 	return false;
 }
 
+// Equal list
+bool isEqual(const List* list1, const List* list2){
+	// Check on list 1 and 2
+	if (list1 == NULL || list2 == NULL){
+		exit(EXIT_FAILURE);
+	}
+	
+	// Initialize elements to firsts
+	Element* elt1 = list1->first;
+	Element* elt2 = list2->first;
+	
+	// Move through both lists simultaneously
+	while (elt1 != NULL && elt2 != NULL){
+		// Check non-equality case
+		if (elt1->number != elt2->number){
+			return false;
+		}
+		// Move to next elements
+		elt1 = elt1->next;
+		elt2 = elt2->next;
+	}
+	
+	// Check end of both lists reached
+	return (elt1 == NULL && elt2 == NULL);
+}
+
 // Sorted list
 bool isSorted(const List* list){
 	// Check on list
@@ -1235,19 +1261,21 @@ int sizeList(const List* list){
 // Delete list
 void deleteList(List* list){
 	// Check on list
-	if (list == NULL || list->first == NULL){
+	if (list == NULL){
 		exit(EXIT_FAILURE);
 	}
 	
-	// Select first element
-	Element* current = list->first;
-	Element* next = NULL;
-	
-	// Delete all elements of the list
-	while(current != NULL){
-		next = current->next;
-		free(current);
-		current = next;
+	if (list->first != NULL){
+		// Select first element
+		Element* current = list->first;
+		Element* next = NULL;
+		
+		// Delete all elements of the list
+		while(current != NULL){
+			next = current->next;
+			free(current);
+			current = next;
+		}
 	}
 	
 	// Free list
