@@ -32,6 +32,8 @@ This section contains some explanations about the functions contained in the lib
 
 * `bool inList(const List* list, const int num)`: Return `true` if `num` is in the list, `false` otherwise.
 
+* `bool isEqual(const List* list1, const List* list2)` Return `true` if all the numbers of both lists are equal and in the same order, `false` otherwise.
+
 * `bool isSorted(const List* list)`: Return `true` if the list is sorted in ascending order, `false` otherwise.
 
 * `int locateList(const List* list, const int num)`: Return the first position index of `num` if in the list, or zero otherwise.
